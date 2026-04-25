@@ -589,6 +589,196 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
 /* ── SETTINGS MODAL ── */
 .set-row{display:flex;align-items:center;gap:12px;padding:9px 11px;background:var(--bg0);border:1px solid var(--bd);border-radius:var(--rs);margin-bottom:6px}
 .set-lbl{flex:1;min-width:0}
+
+/* ══════════════════════════════════════════════════
+   MOBILE RESPONSIVE — ≤ 768px
+══════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  :root { --pw: 100%; }
+
+  /* ── TOPBAR: compact single row ── */
+  .topbar {
+    height: 48px;
+    padding: 0 10px;
+    gap: 6px;
+    overflow: hidden;
+  }
+  .logo { font-size: 13px; }
+  .logo-ver { display: none; } /* hide version badge to save space */
+
+  /* Hide less-essential topbar items on mobile */
+  .vsep { display: none; }
+  .sess { display: none; }
+  #auditGroup { display: none !important; }
+
+  /* Mode tabs — make them smaller & touch-friendly */
+  .mode-tabs { gap: 1px; padding: 2px; }
+  .mtab { font-size: 9px; padding: 4px 8px; border-radius: 4px; }
+
+  /* Right side actions — collapse extras, keep Export + AI visible */
+  .tr { gap: 4px; }
+  /* Hide Theme, Notes, Preview toggle, Settings on mobile */
+  .tr > .btn:not(#expBtn),
+  .tr > .tog,
+  .tr > .kbtn { padding: 5px 8px; font-size: 10px; }
+  /* Specifically hide non-essential items */
+  .tr > .btn[onclick*="openTheme"],
+  .tr > .btn[onclick*="openFeedback"],
+  .tr > .btn[onclick*="openSettings"],
+  .tr > .tog#pvTog { display: none !important; }
+
+  /* ── WORKSPACE: stacked (left panel takes full width) ── */
+  body { height: 100dvh; overflow: hidden; }
+
+  .ws {
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Left panel — full width, collapsible height */
+  .lp {
+    width: 100% !important;
+    max-height: 50vh;
+    flex-shrink: 0;
+    border-right: none;
+    border-bottom: 1px solid var(--bd);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    /* when panel is collapsed via JS, transition nicely */
+    transition: max-height 0.3s ease;
+  }
+
+  /* When a file is loaded + panel is "minimized", shrink left panel */
+  .lp.mobile-collapsed {
+    max-height: 44px;
+    overflow: hidden;
+  }
+
+  /* Editor area — fills remaining space below left panel */
+  .ea {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  /* Preview area — full screen overlay behavior already works via .pv fixed positioning */
+
+  /* ── LEFT PANEL INTERNALS ── */
+  .sec { padding: 10px; }
+  .dz { padding: 12px 8px; }
+
+  /* Collapse toggle chip — tap to expand/collapse the left panel on mobile */
+  .mobile-lp-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    background: var(--bg2);
+    border-bottom: 1px solid var(--bd);
+    cursor: pointer;
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--t1);
+    user-select: none;
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .mobile-lp-toggle svg { width: 12px; height: 12px; transition: transform 0.2s; }
+  .lp.mobile-collapsed .mobile-lp-toggle svg { transform: rotate(180deg); }
+
+  /* ── ELEMENT NAV LIST — scrollable on mobile ── */
+  #navl {
+    max-height: 35vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* ── STBAR / toolbar ── */
+  .stbar { padding: 6px 10px; gap: 8px; font-size: 9px; }
+  .tb { padding: 6px 10px; gap: 6px; flex-wrap: wrap; }
+
+  /* ── CARD EDITOR — full width, comfortable touch targets ── */
+  .ch { flex-wrap: wrap; }
+  .ib { width: 72px; height: 56px; }
+  .ab { width: 32px; height: 32px; }
+  .ub { min-height: 32px; }
+  .ca { gap: 5px; flex-wrap: wrap; }
+
+  /* Suggestion bar */
+  .sugbar { flex-wrap: wrap; gap: 6px; }
+  .sug-apply { min-height: 28px; padding: 4px 10px; }
+
+  /* ── INFUSE PANEL ── */
+  .infuse-panel { overflow-y: auto; -webkit-overflow-scrolling: touch; }
+
+  /* ── AUDIT area ── */
+  #auditArea {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Audit two-column drop zone → single column */
+  .aud-cols { flex-direction: column !important; }
+  .aud-col  { width: 100% !important; }
+
+  /* ── MODALS — full-screen on mobile ── */
+  .mod-box, .mig-box, .kc-box, .set-box, .fb-box, .th-box {
+    width: 95vw !important;
+    max-width: 95vw !important;
+    max-height: 90dvh !important;
+    margin: auto;
+  }
+
+  /* ── RIGHT PANEL (AI) ── */
+  .rp {
+    width: 100% !important;
+    top: 48px !important;
+  }
+
+  /* ── PREVIEW PANE ── */
+  .pv { left: 0 !important; top: 48px !important; }
+
+  /* ── FEATURE BAR — wrap and shrink ── */
+  .feat-bar { flex-wrap: wrap; gap: 4px; padding: 6px 10px; }
+  .ftog { font-size: 9px; padding: 4px 8px; }
+
+  /* ── BUTTONS — ensure minimum touch target ── */
+  .btn, .kbtn, .tog, .sbtn, .scan-btn {
+    min-height: 36px;
+  }
+  .sbtn { font-size: 13px; padding: 10px; }
+  .scan-btn { font-size: 11px; padding: 9px; }
+
+  /* ── INFUSE MODE: compare tabs ── */
+  #pvCompareTabs { flex-wrap: wrap; gap: 4px; padding: 6px 10px; }
+
+  /* ── EMPTY STATE ── */
+  .empty { padding: 24px 16px; gap: 10px; }
+  .ei { width: 44px; height: 44px; border-radius: 12px; }
+
+  /* ── MIGRATION OVERLAY ── */
+  .mig-overlay { align-items: flex-end; }
+  .mig-box { border-radius: 16px 16px 0 0 !important; max-height: 92dvh !important; width: 100% !important; max-width: 100% !important; }
+
+  /* ── AUDIT UPLOAD COLS (two drop zones side by side) → stack ── */
+  .aud-upload-row { flex-direction: column !important; gap: 8px; }
+  .aud-dz-wrap { width: 100% !important; }
+
+  /* Touch-scroll all inner scroll containers */
+  .el-list, .infuse-list, .aud-results {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ── Extra small (< 400px) ── */
+@media (max-width: 400px) {
+  .mtab { font-size: 8px; padding: 3px 6px; }
+  .logo { font-size: 12px; }
+  .kbtn span { display: none; } /* icon-only key button */
+}
 </style>
 </head>
 <body>
@@ -665,7 +855,12 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
 <div class="ws">
 
   <!-- LEFT PANEL -->
-  <div class="lp">
+  <div class="lp" id="leftPanel">
+    <!-- Mobile collapse toggle (hidden on desktop via CSS) -->
+    <div class="mobile-lp-toggle" id="mobileLpToggle" style="display:none" onclick="toggleMobilePanel()">
+      <span id="mobileLpLabel">▼ Panel</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+    </div>
     <!-- File upload (Edit Mode) -->
     <div class="sec" id="editUploadSec">
       <div class="slbl">Load HTML File</div>
@@ -4827,6 +5022,86 @@ function audExportCSV() {
   a.click();
   toast('Audit CSV exported', 'ok');
 }
+
+// ════════════════════════════════════════
+// MOBILE RESPONSIVE ENHANCEMENTS
+// ════════════════════════════════════════
+(function initMobile() {
+  const MOBILE_BP = 768;
+
+  function isMobile() { return window.innerWidth <= MOBILE_BP; }
+
+  // Show/hide the mobile collapse toggle based on viewport
+  function applyMobileLayout() {
+    const toggle = document.getElementById('mobileLpToggle');
+    const lp = document.getElementById('leftPanel');
+    if (!toggle || !lp) return;
+    if (isMobile()) {
+      toggle.style.display = 'flex';
+      // Auto-collapse panel when a file is loaded (editor visible)
+      if (S && S.active && !lp.classList.contains('_mobileInitDone')) {
+        lp.classList.add('mobile-collapsed', '_mobileInitDone');
+        updateMobileToggleLabel();
+      }
+    } else {
+      toggle.style.display = 'none';
+      lp.classList.remove('mobile-collapsed');
+    }
+  }
+
+  // Toggle left panel expand/collapse on mobile
+  window.toggleMobilePanel = function() {
+    const lp = document.getElementById('leftPanel');
+    if (!lp) return;
+    lp.classList.toggle('mobile-collapsed');
+    updateMobileToggleLabel();
+  };
+
+  function updateMobileToggleLabel() {
+    const lp = document.getElementById('leftPanel');
+    const lbl = document.getElementById('mobileLpLabel');
+    if (!lbl || !lp) return;
+    const collapsed = lp.classList.contains('mobile-collapsed');
+    lbl.textContent = collapsed ? '▼ Show Panel' : '▲ Hide Panel';
+  }
+
+  // Auto-collapse panel after opening a file on mobile
+  const origActivate = window.activate;
+  if (typeof origActivate === 'function') {
+    window.activate = function(...args) {
+      const result = origActivate.apply(this, args);
+      if (isMobile()) {
+        setTimeout(() => {
+          const lp = document.getElementById('leftPanel');
+          if (lp) { lp.classList.add('mobile-collapsed'); updateMobileToggleLabel(); }
+        }, 400);
+      }
+      return result;
+    };
+  }
+
+  // When a card is selected on mobile, collapse the left panel to see editor
+  const origSelectEl = window.selectEl;
+  if (typeof origSelectEl === 'function') {
+    window.selectEl = function(...args) {
+      const result = origSelectEl.apply(this, args);
+      if (isMobile()) {
+        const lp = document.getElementById('leftPanel');
+        if (lp) { lp.classList.add('mobile-collapsed'); updateMobileToggleLabel(); }
+      }
+      return result;
+    };
+  }
+
+  // Resize observer for orientation changes
+  window.addEventListener('resize', applyMobileLayout, { passive: true });
+  // Run on init
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyMobileLayout);
+  } else {
+    applyMobileLayout();
+  }
+})();
 </script>
 
 <!-- ══════════ MIGRATION MODAL ══════════ -->
