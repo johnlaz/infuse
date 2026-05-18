@@ -1,0 +1,38 @@
+{
+  "name": "INFUSE Site Injector",
+  "short_name": "INFUSE",
+  "description": "Edit website text and images without touching code. Powered by Groq AI.",
+  "start_url": "/infuse/",
+  "scope": "/infuse/",
+  "display": "standalone",
+  "background_color": "#07070c",
+  "theme_color": "#0d0d1a",
+  "orientation": "any",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
