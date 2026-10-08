@@ -1,38 +1,63 @@
 {
+  "id": "./",
   "name": "INFUSE Site Injector",
   "short_name": "INFUSE",
   "description": "Edit website text and images without touching code. Powered by Groq AI.",
-  "start_url": "/infuse/app/",
-  "scope": "/infuse/app/",
+  "lang": "en",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#07070c",
-  "theme_color": "#0d0d1a",
   "orientation": "any",
+  "background_color": "#0a0a0f",
+  "theme_color": "#0a0a0f",
+  "categories": [
+    "productivity",
+    "developer",
+    "utilities"
+  ],
   "prefer_related_applications": false,
   "icons": [
     {
-      "src": "icon-192x192.png",
+      "src": "icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "icon-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "icon-512x512.png",
+      "src": "icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "shot-phone-1.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Every heading, paragraph, link and image becomes an editable card"
     },
     {
-      "src": "icon-512x512.png",
-      "sizes": "512x512",
+      "src": "shot-phone-2.png",
+      "sizes": "1080x1920",
       "type": "image/png",
-      "purpose": "maskable"
+      "form_factor": "narrow",
+      "label": "Groq AI assistant for rewrites, SEO and tone"
+    },
+    {
+      "src": "shot-desktop.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Edit text and images with a live element list"
+    },
+    {
+      "src": "shot-desktop-preview.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Live preview of your edited page"
     }
   ]
 }

@@ -3,28 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>INFUSE v4.0 — The Auditor</title>
-<link rel="icon" type="image/png" sizes="192x192" href="icon-192x192.png">
-<link rel="icon" href="infusesiteinjector.ico" type="image/x-icon">
-<meta name="theme-color" content="#0d0d1a">
+<title>INFUSE Site Injector</title>
+<meta name="description" content="Edit website text and images without touching code. Load any HTML, rewrite it with Groq AI, export a clean file.">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<meta name="theme-color" content="#0a0a0f">
 <meta name="application-name" content="INFUSE Site Injector">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="INFUSE">
-<link rel="apple-touch-icon" sizes="192x192" href="icon-192x192.png">
+<link rel="apple-touch-icon" sizes="192x192" href="icon-192.png">
 <link rel="manifest" href="manifest.json">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 /* ══════════════════════════════════════════════════
-   INFUSE v5.0 — Tesla/iOS Clean Design System
+   INFUSE — Clean Design System
 ══════════════════════════════════════════════════ */
 :root{
   --bg0:#0a0a0f;--bg1:#111118;--bg2:#17171f;--bg3:#1e1e28;
   --gl:rgba(255,255,255,.025);--bd:rgba(255,255,255,.08);
-  --ac:#5ea4f0;--a2:#9b72f0;--a3:#52d490;--ht:#f0a840;
+  --ac:#ff7a1a;--a2:#4fd8f0;--a3:#52d490;--ht:#f0a840;
   --t0:#eef0f8;--t1:#8892a4;--t2:#3f4558;--dr:#f07070;
   --inf:#f47820;
   --pw:280px;--r:14px;--rs:10px;
@@ -52,7 +52,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
 }
 .logo{font-family:'Syne',sans-serif;font-weight:800;font-size:15px;letter-spacing:.12em;background:linear-gradient(135deg,var(--ac),var(--a2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;white-space:nowrap;flex-shrink:0}
 .logo span{font-weight:400;opacity:.45}
-.logo-ver{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--ac);background:rgba(94,164,240,.08);border:1px solid rgba(94,164,240,.2);border-radius:4px;padding:2px 6px;margin-left:-2px;letter-spacing:.06em;flex-shrink:0;-webkit-text-fill-color:var(--ac);animation:verGlow 3s ease-in-out infinite}
+.logo-ver{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ac);background:rgba(94,164,240,.08);border:1px solid rgba(94,164,240,.2);border-radius:4px;padding:2px 6px;margin-left:-2px;letter-spacing:.06em;flex-shrink:0;-webkit-text-fill-color:var(--ac);animation:verGlow 3s ease-in-out infinite}
 @keyframes verGlow{0%,100%{opacity:.8}50%{opacity:1}}
 .vsep{width:1px;height:20px;background:var(--bd);flex-shrink:0}
 .sess{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--t1);font-family:'JetBrains Mono',monospace;white-space:nowrap}
@@ -70,7 +70,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
 .mtab.ac{background:var(--bg1);color:var(--t0);border:1px solid var(--bd);box-shadow:0 1px 4px rgba(0,0,0,.4)}
 .mtab.infuse-tab.ac{background:rgba(244,120,32,.12);color:var(--inf);border-color:rgba(244,120,32,.3)}
 .mtab.audit-tab.ac{background:rgba(82,212,144,.1);color:var(--a3);border-color:rgba(82,212,144,.3)}
-.mtab.deploy-tab.ac{background:rgba(94,164,240,.1);color:var(--ac);border-color:rgba(94,164,240,.3)}
+.mtab.deploy-tab.ac{background:rgba(94,164,240,.1);color:#5ea4f0;border-color:rgba(94,164,240,.3)}
 .tr{margin-left:auto;display:flex;align-items:center;gap:6px;flex-shrink:0}
 
 /* ── UNIVERSAL BUTTON ── */
@@ -107,7 +107,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
 .btn.audit{border-color:rgba(82,212,144,.35);color:var(--a3)}
 .btn.audit:hover{background:rgba(82,212,144,.07);border-color:var(--a3)}
 .btn.audit.audit-on{background:rgba(82,212,144,.12);border-color:var(--a3);color:var(--a3)}
-.stbar-audit{display:none;align-items:center;gap:12px;color:var(--t2);font-family:'JetBrains Mono',monospace;font-size:10px}
+.stbar-audit{display:none;align-items:center;gap:12px;color:var(--t2);font-family:'JetBrains Mono',monospace;font-size:11px}
 .stbar-audit.show{display:flex}
 .stbar-audit .sv{color:var(--a3)}.stbar-audit .sv-old{color:var(--dr)}.stbar-audit .sv-ext{color:var(--ht)}
 
@@ -123,7 +123,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
 .card.link-audit-new{border-color:rgba(82,212,144,.4)!important;background:rgba(82,212,144,.03)}
 .card.link-audit-old{border-color:rgba(240,112,112,.4)!important;background:rgba(240,112,112,.03)}
 .card.link-audit-ext{border-color:rgba(240,168,64,.3)!important}
-.link-domain-badge{display:inline-flex;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:9px;padding:2px 7px;border-radius:10px;margin-top:6px;font-weight:500}
+.link-domain-badge{display:inline-flex;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:10px;padding:2px 7px;border-radius:10px;margin-top:6px;font-weight:500}
 .ldb-new{background:rgba(82,212,144,.1);color:var(--a3);border:1px solid rgba(82,212,144,.25)}
 .ldb-old{background:rgba(240,112,112,.1);color:var(--dr);border:1px solid rgba(240,112,112,.25)}
 .ldb-ext{background:rgba(240,168,64,.07);color:var(--ht);border:1px solid rgba(240,168,64,.18)}
@@ -136,13 +136,13 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
 .mig-title{font-family:'Syne',sans-serif;font-weight:700;font-size:16px;letter-spacing:.05em;background:linear-gradient(135deg,var(--ac),var(--a2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .mig-sub{font-size:11px;color:var(--t2);line-height:1.5;margin-top:-8px}
 .mig-field{display:flex;flex-direction:column;gap:5px}
-.mig-lbl{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--t2)}
+.mig-lbl{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--t2)}
 .mig-inp{background:var(--bg0);border:1px solid var(--bd);border-radius:var(--rs);padding:9px 12px;color:var(--t0);font-size:12px;font-family:'JetBrains Mono',monospace;outline:none;transition:border-color .15s;width:100%}
 .mig-inp:focus{border-color:var(--ac)}
 .mig-inp.mig-old:focus{border-color:var(--dr)}
 .mig-inp.mig-new:focus{border-color:var(--a3)}
 .mig-arrow{text-align:center;font-size:18px;color:var(--t2);line-height:1}
-.mig-preview{background:var(--bg0);border:1px solid var(--bd);border-radius:var(--rs);padding:10px 12px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t2);min-height:36px}
+.mig-preview{background:var(--bg0);border:1px solid var(--bd);border-radius:var(--rs);padding:10px 12px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--t2);min-height:36px}
 .mig-preview span{color:var(--a3)}
 .mig-preview .mig-count{color:var(--ht);font-weight:600}
 .mig-btns{display:flex;gap:8px;justify-content:flex-end}
@@ -206,7 +206,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
 .lp-toggle-btn.panel-open svg{transform:scaleX(-1)}
 
 .sec{padding:12px 14px;border-bottom:1px solid var(--bd);flex-shrink:0}
-.slbl{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;color:var(--t2);text-transform:uppercase;margin-bottom:8px}
+.slbl{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--t2);text-transform:uppercase;margin-bottom:8px}
 
 /* ─── DROP ZONE ─── */
 .dz{border:2px dashed var(--bd);border-radius:var(--r);padding:16px 12px;text-align:center;cursor:pointer;transition:all .15s;position:relative;overflow:hidden}
@@ -220,12 +220,12 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
 .dz-txt{font-size:11px;color:var(--t1);line-height:1.5}
 .dz-txt strong{color:var(--ac)}
 .dz-txt .inf-strong{color:var(--inf)}
-.dz-lbl{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--t2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px}
+.dz-lbl{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px}
 
 /* dual-drop */
 .dual-drop{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.slot-label{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--t2);text-align:center;margin-bottom:3px;text-transform:uppercase;letter-spacing:.08em}
-.slot-loaded{font-size:9px;color:var(--a3);text-align:center;font-family:'JetBrains Mono',monospace;margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.slot-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t2);text-align:center;margin-bottom:3px;text-transform:uppercase;letter-spacing:.08em}
+.slot-loaded{font-size:10px;color:var(--a3);text-align:center;font-family:'JetBrains Mono',monospace;margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .slot-loaded.empty{color:var(--t2)}
 
 /* file list */
@@ -257,16 +257,16 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
 
 /* ─── FILTER TABS ─── */
 .ftabs{display:flex;gap:3px;padding:8px 10px;border-bottom:1px solid var(--bd);flex-shrink:0;flex-wrap:wrap}
-.ft{font-size:10px;font-family:'JetBrains Mono',monospace;padding:4px 9px;border-radius:14px;border:1px solid var(--bd);background:transparent;color:var(--t2);cursor:pointer;transition:all .12s;white-space:nowrap}
+.ft{font-size:11px;font-family:'JetBrains Mono',monospace;padding:4px 9px;border-radius:14px;border:1px solid var(--bd);background:transparent;color:var(--t2);cursor:pointer;transition:all .12s;white-space:nowrap}
 .ft:hover{color:var(--t1);border-color:rgba(255,255,255,.12)}
 .ft.ac{border-color:var(--ac);color:var(--ac);background:rgba(94,164,240,.08)}
 .ft.ah{border-color:var(--ht);color:var(--ht);background:rgba(240,168,64,.08)}
 .ft.ai2{border-color:var(--a2);color:var(--a2);background:rgba(155,114,240,.08)}
-.ft-n{font-size:9px;opacity:.55;margin-left:2px}
+.ft-n{font-size:10px;opacity:.55;margin-left:2px}
 
 /* nav list */
 .elh{padding:7px 12px 2px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
-.elc{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t2)}
+.elc{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--t2)}
 .elc span{color:var(--ac)}
 .navl{flex:1;overflow-y:auto;padding:5px;display:flex;flex-direction:column;gap:2px;scrollbar-width:thin;scrollbar-color:var(--bd) transparent}
 .navl::-webkit-scrollbar{width:3px}
@@ -285,11 +285,11 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
 
 /* ─── EDITOR AREA ─── */
 .ea{flex:1;display:flex;flex-direction:column;overflow:hidden;background:var(--bg0)}
-.stbar{padding:6px 14px;background:var(--bg1);border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:14px;flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--t2);flex-wrap:wrap;letter-spacing:.02em}
+.stbar{padding:6px 14px;background:var(--bg1);border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:14px;flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t2);flex-wrap:wrap;letter-spacing:.02em}
 .stbar .sv{color:var(--ac)}
 .feat-bar{display:flex;align-items:center;gap:5px;padding:6px 14px;background:var(--bg1);border-bottom:1px solid var(--bd);flex-shrink:0;flex-wrap:wrap}
-.feat-lbl{font-size:10px;color:var(--t2);font-family:'JetBrains Mono',monospace;white-space:nowrap}
-.ftog{display:flex;align-items:center;gap:5px;padding:4px 9px;border-radius:var(--rs);border:1px solid var(--bd);background:transparent;color:var(--t2);cursor:pointer;font-size:10px;font-family:'Inter',sans-serif;transition:all .12s;white-space:nowrap;user-select:none}
+.feat-lbl{font-size:11px;color:var(--t2);font-family:'JetBrains Mono',monospace;white-space:nowrap}
+.ftog{display:flex;align-items:center;gap:5px;padding:4px 9px;border-radius:var(--rs);border:1px solid var(--bd);background:transparent;color:var(--t2);cursor:pointer;font-size:11px;font-family:'Inter',sans-serif;transition:all .12s;white-space:nowrap;user-select:none}
 .ftog:hover{border-color:rgba(255,255,255,.12);color:var(--t1)}
 .ftog.on{border-color:var(--ac);color:var(--ac);background:rgba(94,164,240,.07)}
 .ftsw{width:18px;height:10px;background:var(--bg3);border-radius:5px;position:relative;flex-shrink:0;transition:background .15s}
@@ -317,14 +317,14 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
 .ch{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
 .ct{flex:1;min-width:0}
 .cl{display:flex;align-items:center;gap:6px;margin-bottom:5px;flex-wrap:wrap}
-.bdg{font-family:'JetBrains Mono',monospace;font-size:8px;padding:2px 6px;border-radius:4px;font-weight:500;flex-shrink:0}
+.bdg{font-family:'JetBrains Mono',monospace;font-size:10px;padding:2px 6px;border-radius:4px;font-weight:500;flex-shrink:0}
 .bh{background:rgba(240,168,64,.1);color:var(--ht);border:1px solid rgba(240,168,64,.2)}
 .bt{background:rgba(94,164,240,.08);color:var(--ac);border:1px solid rgba(94,164,240,.18)}
 .bi{background:rgba(155,114,240,.08);color:var(--a2);border:1px solid rgba(155,114,240,.18)}
 .bl{background:rgba(82,212,144,.08);color:var(--a3);border:1px solid rgba(82,212,144,.18)}
-.cc{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--t2);margin-left:auto;flex-shrink:0}
+.cc{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t2);margin-left:auto;flex-shrink:0}
 .cc.w{color:var(--dr)}
-.si{display:flex;align-items:center;gap:5px;font-size:9px;font-family:'JetBrains Mono',monospace;color:var(--t2)}
+.si{display:flex;align-items:center;gap:5px;font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--t2)}
 
 /* card textarea */
 .cf{width:100%;background:var(--bg0);border:1px solid var(--bd);border-radius:var(--rs);padding:8px 10px;color:var(--t0);font-size:12px;line-height:1.55;font-family:'Inter',sans-serif;resize:vertical;outline:none;transition:border-color .12s;min-height:44px}
@@ -334,7 +334,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
 .inp{width:100%;background:var(--bg0);border:1px solid var(--bd);border-radius:var(--rs);padding:6px 10px;color:var(--t0);font-size:11px;font-family:'JetBrains Mono',monospace;outline:none;transition:border-color .15s}
 .inp:focus{border-color:var(--ac)}
 .href-row{display:flex;align-items:center;gap:5px;margin-top:5px}
-.href-lbl{font-size:9px;font-family:'JetBrains Mono',monospace;color:var(--t2);text-transform:uppercase;letter-spacing:.08em;white-space:nowrap;flex-shrink:0}
+.href-lbl{font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--t2);text-transform:uppercase;letter-spacing:.08em;white-space:nowrap;flex-shrink:0}
 
 /* action bar */
 .ca{display:flex;align-items:center;gap:5px;margin-top:8px;flex-wrap:wrap}
@@ -342,7 +342,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
 .ab:hover{border-color:rgba(255,255,255,.12);color:var(--t1)}
 .ab.ai-b:hover{border-color:rgba(244,120,32,.4);color:#f99070}
 .ab svg{width:11px;height:11px;pointer-events:none}
-.ub{min-height:28px;padding:0 8px;border-radius:var(--rs);border:1px solid var(--bd);background:transparent;color:var(--t1);font-size:10px;cursor:pointer;transition:all .12s;display:flex;align-items:center;gap:4px}
+.ub{min-height:28px;padding:0 8px;border-radius:var(--rs);border:1px solid var(--bd);background:transparent;color:var(--t1);font-size:11px;cursor:pointer;transition:all .12s;display:flex;align-items:center;gap:4px}
 .ub:hover{border-color:var(--ac);color:var(--ac)}
 .ub svg{width:10px;height:10px}
 
@@ -350,20 +350,20 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
 .ifl{display:flex;gap:10px;align-items:flex-start}
 .ib{width:80px;height:60px;border-radius:var(--rs);overflow:hidden;background:var(--bg0);border:1px solid var(--bd);position:relative;flex-shrink:0}
 .ib img{width:100%;height:100%;object-fit:cover}
-.iov{position:absolute;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;cursor:pointer;font-size:9px;color:#fff;flex-direction:column;gap:3px}
+.iov{position:absolute;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;cursor:pointer;font-size:10px;color:#fff;flex-direction:column;gap:3px}
 .ib:hover .iov{display:flex}
 .iov svg{width:14px;height:14px}
 .iph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--t2)}
 .iph svg{width:16px;height:16px}
 .alf{flex:1;min-width:0}
-.src{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--t2);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.src{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t2);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .alt-f{flex:1}
 
 /* suggest bar */
 .sugbar{display:flex;align-items:center;gap:6px;background:rgba(244,120,32,.06);border:1px solid rgba(244,120,32,.2);border-radius:var(--rs);padding:6px 9px;margin-top:6px;font-size:11px}
 .sugbar svg{width:11px;height:11px;color:#f99070;flex-shrink:0}
 .sug-txt{flex:1;color:var(--t0);line-height:1.4;min-width:0}
-.sug-apply{padding:3px 10px;border-radius:6px;background:var(--a3);border:none;color:#06060a;font-size:10px;font-weight:600;cursor:pointer;flex-shrink:0}
+.sug-apply{padding:3px 10px;border-radius:6px;background:var(--a3);border:none;color:#06060a;font-size:11px;font-weight:600;cursor:pointer;flex-shrink:0}
 .sug-x{color:var(--t2);cursor:pointer;flex-shrink:0;font-size:14px;line-height:1;padding:0 3px}
 .sug-x:hover{color:var(--dr)}
 
@@ -406,11 +406,11 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
 .ai-info{background:var(--bg0);border:1px solid var(--bd);border-radius:var(--rs);padding:10px 12px;font-size:11px;color:var(--t2);line-height:1.6}
 .ai-info a{color:var(--ac)}
 .kc{display:flex;flex-direction:column;gap:8px}
-.kc-title{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;display:flex;align-items:center;gap:6px;color:var(--t1)}
+.kc-title{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;display:flex;align-items:center;gap:6px;color:var(--t1)}
 .kc-title svg{width:12px;height:12px}
 .kc input{background:var(--bg0);border:1px solid var(--bd);border-radius:var(--rs);padding:9px 12px;color:var(--t0);font-size:12px;font-family:'JetBrains Mono',monospace;outline:none;transition:border-color .15s;width:100%}
 .kc input:focus{border-color:var(--ac)}
-.kc-st{font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--t2)}
+.kc-st{font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--t2)}
 .kc-st.ok{color:var(--a3)}
 .kc-st.err{color:var(--dr)}
 
@@ -424,7 +424,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
 .pvd .dot:nth-child(1){background:#ef4444}
 .pvd .dot:nth-child(2){background:#f59e0b}
 .pvd .dot:nth-child(3){background:#22c55e}
-.pvu{flex:1;background:var(--bg3);border:1px solid var(--bd);border-radius:var(--rs);padding:5px 10px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pvu{flex:1;background:var(--bg3);border:1px solid var(--bd);border-radius:var(--rs);padding:5px 10px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--t2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .pvi{flex:1;border:none;background:#fff}
 
 /* compare tabs in preview */
@@ -433,7 +433,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
 /* ─── GUIDE ─── */
 .guide{display:flex;flex-direction:column;gap:8px}
 .gs{display:flex;gap:9px;align-items:flex-start}
-.gn{width:20px;height:20px;border-radius:50%;background:var(--bg3);font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--t0);cursor:default;border:1px solid var(--bd)}
+.gn{width:20px;height:20px;border-radius:50%;background:var(--bg3);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--t0);cursor:default;border:1px solid var(--bd)}
 .gn.cl{cursor:pointer;border-color:var(--ac);color:var(--ac)}
 .gn.cl:hover{background:rgba(94,164,240,.12)}
 .gt{font-size:11px;color:var(--t1);line-height:1.5}
@@ -443,9 +443,9 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
 .pp{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
 .pb2{background:var(--bg0);border:1px solid var(--bd);border-radius:var(--rs);min-height:80px;padding:8px;position:relative;overflow:hidden;font-size:11px;color:var(--t2)}
 .pb2 img{width:100%;height:100%;object-fit:cover;border-radius:4px}
-.plbl2{position:absolute;bottom:5px;left:5px;font-size:8px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;background:rgba(94,164,240,.75);color:#fff;padding:2px 6px;border-radius:3px}
+.plbl2{position:absolute;bottom:5px;left:5px;font-size:10px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;background:rgba(94,164,240,.75);color:#fff;padding:2px 6px;border-radius:3px}
 .pol-opts{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px}
-.pot{padding:4px 10px;border-radius:var(--rs);border:1px solid var(--bd);background:transparent;color:var(--t1);font-size:10px;cursor:pointer;transition:all .12s}
+.pot{padding:4px 10px;border-radius:var(--rs);border:1px solid var(--bd);background:transparent;color:var(--t1);font-size:11px;cursor:pointer;transition:all .12s}
 .pot:hover{border-color:rgba(255,255,255,.12);color:var(--t0)}
 .pot.sl{border-color:var(--a2);color:var(--a2);background:rgba(155,114,240,.08)}
 .psug{background:var(--bg0);border:1px solid var(--bd);border-radius:var(--rs);padding:10px 12px;font-size:11px;color:var(--t1);line-height:1.6;min-height:36px}
@@ -456,28 +456,28 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
 .tc2.sel{border-color:var(--ac)}
 .tc2:hover{border-color:rgba(255,255,255,.12)}
 .tp{height:60px;position:relative;overflow:hidden}
-.tn{font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--t1);text-align:center;padding:5px;background:var(--bg0);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tn{font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--t1);text-align:center;padding:5px;background:var(--bg0);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ai-theme-btn{display:inline-flex;align-items:center;gap:5px;padding:7px 12px;border-radius:var(--rs);border:1px solid rgba(244,120,32,.35);background:rgba(244,120,32,.06);color:#f99070;font-size:11px;cursor:pointer;transition:all .15s;font-family:'Inter',sans-serif;font-weight:500;width:100%;justify-content:center;margin-bottom:12px}
 .ai-theme-btn:hover{background:rgba(244,120,32,.14);border-color:#f99070}
 .ai-theme-btn svg{width:12px;height:12px}
-.cptitle{font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--t2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;margin-top:4px}
+.cptitle{font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--t2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;margin-top:4px}
 .cpgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-bottom:14px}
 .cprow{display:flex;align-items:center;gap:7px;padding:6px 8px;background:var(--bg0);border:1px solid var(--bd);border-radius:var(--rs)}
-.cplbl{font-size:10px;color:var(--t1);flex:1;font-family:'Inter',sans-serif;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cplbl{font-size:11px;color:var(--t1);flex:1;font-family:'Inter',sans-serif;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .cpsw{width:20px;height:20px;border-radius:3px;border:1px solid rgba(255,255,255,.1);cursor:pointer;position:relative;overflow:hidden;flex-shrink:0}
 .cpsw input[type=color]{position:absolute;inset:-4px;opacity:0;cursor:pointer;width:calc(100%+8px);height:calc(100%+8px)}
-.cphx{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--t1);width:52px;background:transparent;border:none;outline:none;cursor:pointer}
+.cphx{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t1);width:52px;background:transparent;border:none;outline:none;cursor:pointer}
 
 /* app quick themes */
 .quick-themes{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px}
-.qt{padding:4px 10px;border-radius:14px;border:1px solid var(--bd);background:transparent;font-size:10px;font-family:'Inter',sans-serif;cursor:pointer;transition:all .12s;color:var(--t1)}
+.qt{padding:4px 10px;border-radius:14px;border:1px solid var(--bd);background:transparent;font-size:11px;font-family:'Inter',sans-serif;cursor:pointer;transition:all .12s;color:var(--t1)}
 .qt:hover{border-color:rgba(255,255,255,.15);color:var(--t0)}
 .qt.active-qt{border-color:var(--ac);color:var(--ac);background:rgba(94,164,240,.08)}
 .max-500{max-width:500px!important}
 
 /* ─── EXPORT ─── */
-.ec{background:var(--bg0);border:1px solid var(--bd);border-radius:var(--rs);padding:12px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--a3);max-height:170px;overflow-y:auto;white-space:pre-wrap;word-break:break-all;line-height:1.5;margin-bottom:4px;scrollbar-width:thin}
-.exp-tab{font-size:10px;font-family:'JetBrains Mono',monospace;padding:3px 9px;border-radius:var(--rs);border:1px solid var(--bd);background:transparent;color:var(--t2);cursor:pointer;transition:all .12s}
+.ec{background:var(--bg0);border:1px solid var(--bd);border-radius:var(--rs);padding:12px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--a3);max-height:170px;overflow-y:auto;white-space:pre-wrap;word-break:break-all;line-height:1.5;margin-bottom:4px;scrollbar-width:thin}
+.exp-tab{font-size:11px;font-family:'JetBrains Mono',monospace;padding:3px 9px;border-radius:var(--rs);border:1px solid var(--bd);background:transparent;color:var(--t2);cursor:pointer;transition:all .12s}
 .exp-tab.ac{background:rgba(244,120,32,.1);color:var(--inf);border-color:rgba(244,120,32,.3)}
 
 /* ─── FEEDBACK MODAL ─── */
@@ -485,16 +485,16 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
 .fb-list::-webkit-scrollbar{width:3px}
 .fb-list::-webkit-scrollbar-thumb{background:var(--bd);border-radius:2px}
 .fb-item{background:var(--bg0);border:1px solid var(--bd);border-radius:var(--rs);padding:9px 11px;font-size:11px;color:var(--t1);line-height:1.5;display:flex;gap:8px;align-items:flex-start}
-.fb-item .fb-tag{font-size:8px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;padding:1px 5px;border-radius:3px;flex-shrink:0;margin-top:1px}
+.fb-item .fb-tag{font-size:10px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;padding:1px 5px;border-radius:3px;flex-shrink:0;margin-top:1px}
 .fb-tag.bug{background:rgba(240,112,112,.1);color:var(--dr);border:1px solid rgba(240,112,112,.18)}
 .fb-tag.idea{background:rgba(94,164,240,.08);color:var(--ac);border:1px solid rgba(94,164,240,.16)}
 .fb-tag.note{background:rgba(240,168,64,.08);color:var(--ht);border:1px solid rgba(240,168,64,.16)}
 .fb-txt{flex:1}
-.fb-date{font-size:9px;color:var(--t2);font-family:'JetBrains Mono',monospace;margin-top:2px}
+.fb-date{font-size:10px;color:var(--t2);font-family:'JetBrains Mono',monospace;margin-top:2px}
 .fb-rm{color:var(--t2);cursor:pointer;font-size:12px;line-height:1;flex-shrink:0;transition:color .12s}
 .fb-rm:hover{color:var(--dr)}
 .fb-type-row{display:flex;gap:4px;margin-bottom:8px}
-.fbt{font-size:10px;padding:3px 10px;border-radius:9px;border:1px solid var(--bd);background:transparent;color:var(--t1);cursor:pointer;transition:all .12s}
+.fbt{font-size:11px;padding:3px 10px;border-radius:9px;border:1px solid var(--bd);background:transparent;color:var(--t1);cursor:pointer;transition:all .12s}
 .fbt.sel{border-color:var(--ac);color:var(--ac);background:rgba(94,164,240,.08)}
 .fb-empty{color:var(--t2);font-size:11px;text-align:center;padding:16px}
 .af{width:100%;background:var(--bg0);border:1px solid var(--bd);border-radius:var(--rs);padding:9px 11px;color:var(--t0);font-size:12px;font-family:'Inter',sans-serif;outline:none;transition:border-color .15s;resize:vertical;min-height:72px}
@@ -510,7 +510,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
 .rph{padding:14px 16px;border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:10px;flex-shrink:0}
 .rp-logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,rgba(244,120,32,.3),rgba(240,168,64,.2));display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:11px;color:var(--ht);flex-shrink:0;border:1px solid rgba(244,120,32,.25)}
 .rp-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:700}
-.rp-sub{font-size:10px;color:var(--t2)}
+.rp-sub{font-size:11px;color:var(--t2)}
 .rp-cls{margin-left:auto;background:transparent;border:none;color:var(--t2);cursor:pointer;padding:4px;transition:color .12s}
 .rp-cls:hover{color:var(--t0)}
 .rp-cls svg{width:14px;height:14px}
@@ -519,7 +519,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
 .msgs::-webkit-scrollbar-thumb{background:var(--bd);border-radius:2px}
 .mr{display:flex;gap:8px;align-items:flex-end}
 .mr.u{flex-direction:row-reverse}
-.av{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;font-family:'Syne',sans-serif}
+.av{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;font-family:'Syne',sans-serif}
 .av.ai{background:linear-gradient(135deg,rgba(244,120,32,.25),rgba(240,168,64,.15));color:var(--ht);border:1px solid rgba(244,120,32,.2)}
 .av.u{background:var(--bg3);color:var(--t1);border:1px solid var(--bd)}
 .bub{max-width:240px;padding:9px 11px;border-radius:12px;font-size:12px;line-height:1.55;border:1px solid var(--bd)}
@@ -531,7 +531,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
 @keyframes tda{0%,100%{opacity:.3;transform:scale(.8)}50%{opacity:1;transform:scale(1)}}
 .gia{padding:10px 12px;border-top:1px solid var(--bd);flex-shrink:0}
 .qps{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:8px}
-.qp{font-size:10px;padding:4px 9px;border-radius:var(--rs);border:1px solid var(--bd);background:transparent;color:var(--t2);cursor:pointer;transition:all .12s;white-space:nowrap}
+.qp{font-size:11px;padding:4px 9px;border-radius:var(--rs);border:1px solid var(--bd);background:transparent;color:var(--t2);cursor:pointer;transition:all .12s;white-space:nowrap}
 .qp:hover{border-color:rgba(255,255,255,.12);color:var(--t1)}
 .gir{display:flex;gap:6px;align-items:flex-end}
 .gin{flex:1;background:var(--bg0);border:1px solid var(--bd);border-radius:var(--rs);padding:8px 10px;color:var(--t0);font-size:12px;font-family:'Inter',sans-serif;outline:none;resize:none;line-height:1.5;min-height:42px;max-height:120px;transition:border-color .12s}
@@ -539,7 +539,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
 .gsnd{width:32px;height:32px;background:rgba(94,164,240,.1);border:1px solid rgba(94,164,240,.2);border-radius:var(--rs);color:var(--ac);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .12s;flex-shrink:0}
 .gsnd:hover{background:rgba(94,164,240,.2)}
 .gsnd svg{width:13px;height:13px}
-.rp-bdg{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--t2);text-align:center;padding:5px;letter-spacing:.04em;opacity:.5}
+.rp-bdg{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t2);text-align:center;padding:5px;letter-spacing:.04em;opacity:.5}
 
 /* ─── INFUSE MODE ─── */
 .infuse-panel{display:none;flex:1;flex-direction:column;overflow:hidden;background:var(--bg0)}
@@ -549,31 +549,31 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
 .inf-slot-pill-b:hover{border-color:rgba(244,120,32,.3)}
 .inf-slot-pill.loaded{border-color:rgba(82,212,144,.3)}
 .inf-slot-pill svg{width:11px;height:11px;color:var(--t2);flex-shrink:0}
-.inf-slot-name{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t2);max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.inf-slot-name{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--t2);max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .inf-filterbar{display:none;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--bd);flex-shrink:0}
 .inf-col-filter{display:flex;align-items:center;gap:3px;padding:5px 8px;flex-wrap:wrap}
 .inf-3col{display:grid;grid-template-columns:1fr 1fr 1fr;flex:1;overflow:hidden}
 .inf-col{display:flex;flex-direction:column;overflow:hidden;border-right:1px solid var(--bd)}
 .inf-col:last-child{border-right:none}
-.inf-col-hdr{display:flex;align-items:center;gap:6px;padding:7px 11px;border-bottom:2px solid;font-family:'JetBrains Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;flex-shrink:0;background:var(--bg1)}
+.inf-col-hdr{display:flex;align-items:center;gap:6px;padding:7px 11px;border-bottom:2px solid;font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em;flex-shrink:0;background:var(--bg1)}
 .inf-col-body{flex:1;overflow-y:auto;padding:5px;display:flex;flex-direction:column;gap:3px;scrollbar-width:thin;scrollbar-color:var(--bd) transparent}
 .inf-col-body::-webkit-scrollbar{width:3px}
 .inf-col-body::-webkit-scrollbar-thumb{background:var(--bd);border-radius:2px}
-.col-count{margin-left:auto;font-size:9px;color:var(--t2)}
+.col-count{margin-left:auto;font-size:10px;color:var(--t2)}
 .inf-empty{color:var(--t2);font-size:11px;text-align:center;padding:20px 12px;line-height:1.6}
 .infc{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--rs);padding:9px 10px;transition:border-color .12s;animation:fu .18s ease both}
 .infc:hover{border-color:rgba(255,255,255,.1)}
 .infc-edit{background:var(--bg2)}
 .infc-hdr{display:flex;align-items:center;gap:5px;margin-bottom:6px;min-width:0}
-.infc-lbl{font-size:10px;color:var(--t1);font-family:'JetBrains Mono',monospace;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.infc-lbl{font-size:11px;color:var(--t1);font-family:'JetBrains Mono',monospace;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
 .infc-txt{font-size:11px;color:var(--t0);line-height:1.45;max-height:52px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
 .infc-h{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--ht);max-height:38px;-webkit-line-clamp:2}
 .infc-add{width:20px;height:20px;border-radius:4px;border:1px solid var(--bd);background:transparent;color:var(--t2);font-size:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .12s;flex-shrink:0;line-height:1}
 .infc-add:hover{border-color:var(--a3);color:var(--a3);background:rgba(82,212,144,.07)}
-.infc-add.added{border-color:rgba(82,212,144,.4);color:var(--a3);background:rgba(82,212,144,.07);font-size:10px}
+.infc-add.added{border-color:rgba(82,212,144,.4);color:var(--a3);background:rgba(82,212,144,.07);font-size:11px}
 .infc-cf{width:100%;background:var(--bg0);border:1px solid var(--bd);border-radius:6px;padding:6px 8px;color:var(--t0);font-size:11px;line-height:1.45;font-family:'Inter',sans-serif;resize:none;outline:none;transition:border-color .12s;margin-top:4px}
 .infc-cf:focus{border-color:var(--ac)}
-.infc-lnk{font-family:'JetBrains Mono',monospace;font-size:10px}
+.infc-lnk{font-family:'JetBrains Mono',monospace;font-size:11px}
 .sugbar.isug{background:rgba(244,120,32,.05);border-color:rgba(244,120,32,.18);padding:5px 8px;margin-top:4px}
 .infuse-prog{height:3px;background:linear-gradient(90deg,var(--inf),var(--a3));border-radius:2px;transition:width .3s;width:0%}
 
@@ -585,9 +585,9 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
 /* ─── MEDIA UPLOAD ─── */
 .media-upload-row{display:flex;gap:10px;align-items:flex-start}
 .media-preview-box{width:90px;height:60px;border-radius:var(--rs);border:1px solid var(--bd);background:var(--bg0);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.media-ph{display:flex;flex-direction:column;align-items:center;gap:3px;color:var(--t2);font-size:8px;font-family:'JetBrains Mono',monospace;text-transform:uppercase}
+.media-ph{display:flex;flex-direction:column;align-items:center;gap:3px;color:var(--t2);font-size:10px;font-family:'JetBrains Mono',monospace;text-transform:uppercase}
 .media-controls{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
-.media-field-lbl{font-size:9px;font-family:'JetBrains Mono',monospace;color:var(--t2);text-transform:uppercase;letter-spacing:.08em}
+.media-field-lbl{font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--t2);text-transform:uppercase;letter-spacing:.08em}
 .logo-preview-box{padding:10px 12px;background:var(--bg0);border:1px solid rgba(82,212,144,.15);border-radius:var(--rs);margin-bottom:10px;display:flex;align-items:center;justify-content:center;min-height:50px}
 
 /* ─── DEPLOY (CODE STRIPPER) TAB ─── */
@@ -595,7 +595,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
 .deploy-inner{display:flex;flex:1;overflow:hidden;flex-direction:column;padding:20px;gap:16px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--bd) transparent}
 .deploy-header{display:flex;align-items:center;gap:10px}
 .deploy-header h2{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--t0)}
-.deploy-badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;padding:3px 9px;border-radius:var(--rs);background:rgba(82,212,144,.1);color:var(--a3);border:1px solid rgba(82,212,144,.25)}
+.deploy-badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;padding:3px 9px;border-radius:var(--rs);background:rgba(82,212,144,.1);color:var(--a3);border:1px solid rgba(82,212,144,.25)}
 .deploy-panels{display:grid;grid-template-columns:1fr 1fr;gap:12px;flex:0}
 .deploy-panel-lbl{font-size:11px;font-weight:500;color:var(--t1);font-family:'JetBrains Mono',monospace;margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em}
 .deploy-ta{width:100%;height:260px;resize:vertical;background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);padding:12px;font-size:11.5px;line-height:1.6;font-family:'JetBrains Mono',monospace;color:var(--t0);outline:none;transition:border-color .15s;scrollbar-width:thin;scrollbar-color:var(--bd) transparent}
@@ -625,7 +625,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
   .btn span{display:none}
   .kbtn span{display:none}
   .mode-tabs{gap:1px;padding:2px}
-  .mtab{font-size:9px;padding:4px 8px}
+  .mtab{font-size:10px;padding:4px 8px}
   .icon-sidebar{display:none}
   .lp{position:fixed;left:0;top:48px;bottom:0;z-index:150;transform:translateX(-100%);transition:transform .25s;width:280px!important;box-shadow:8px 0 32px rgba(0,0,0,.6)}
   .lp.mobile-open{transform:none}
@@ -640,8 +640,8 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
   .rp{width:100%!important}
   .tb{padding:6px 10px;gap:5px;flex-wrap:wrap}
   .feat-bar{padding:5px 10px;gap:4px;flex-wrap:wrap}
-  .ftog{font-size:9px;padding:4px 8px}
-  .stbar{padding:5px 10px;gap:8px;font-size:9px}
+  .ftog{font-size:10px;padding:4px 8px}
+  .stbar{padding:5px 10px;gap:8px;font-size:10px}
   .aud-cols{flex-direction:column!important}
   .aud-col{width:100%!important}
   .aud-upload-row{flex-direction:column!important;gap:8px}
@@ -655,7 +655,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
   .deploy-stats{gap:10px}
 }
 @media(max-width:400px){
-  .mtab{font-size:8px;padding:3px 6px}
+  .mtab{font-size:10px;padding:3px 6px}
   .logo{font-size:13px}
 }
 
@@ -664,7 +664,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
 @keyframes sp{to{transform:rotate(360deg)}}
 
 /* ─── BADGES ─── */
-.bdg{font-family:'JetBrains Mono',monospace;font-size:8px;padding:2px 6px;border-radius:4px;font-weight:500;flex-shrink:0;border:1px solid transparent}
+.bdg{font-family:'JetBrains Mono',monospace;font-size:10px;padding:2px 6px;border-radius:4px;font-weight:500;flex-shrink:0;border:1px solid transparent}
 .bdg.bh{background:rgba(240,168,64,.1);color:var(--ht);border-color:rgba(240,168,64,.2)}
 .bdg.bt{background:rgba(94,164,240,.08);color:var(--ac);border-color:rgba(94,164,240,.18)}
 .bdg.bi{background:rgba(155,114,240,.08);color:var(--a2);border-color:rgba(155,114,240,.18)}
@@ -675,7 +675,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t0);height
 
 /* ─── TOOLTIP ─── */
 [data-tip]{position:relative}
-[data-tip]:hover::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--bg3);border:1px solid var(--bd);border-radius:6px;padding:4px 8px;font-size:10px;white-space:nowrap;color:var(--t0);z-index:999;pointer-events:none;font-family:'Inter',sans-serif}
+[data-tip]:hover::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--bg3);border:1px solid var(--bd);border-radius:6px;padding:4px 8px;font-size:11px;white-space:nowrap;color:var(--t0);z-index:999;pointer-events:none;font-family:'Inter',sans-serif}
 
 /* Infuse progress bar */
 .infuse-prog{height:3px;background:linear-gradient(90deg,var(--inf),var(--a3));border-radius:2px;transition:width .3s;width:0%}
@@ -694,6 +694,66 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
 .mobile-menu-btn{display:none;background:transparent;border:1px solid var(--bd);border-radius:var(--rs);padding:6px 8px;color:var(--t1);cursor:pointer;align-items:center;justify-content:center}
 .mobile-menu-btn svg{width:16px;height:16px}
 .mobile-menu-btn:hover{border-color:rgba(255,255,255,.15);color:var(--t0)}
+
+/* ── v5.1 restored rules: markup used these class names but the stylesheet no longer defined them ── */
+/* toasts */
+.tc{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;z-index:9999;pointer-events:none;max-width:92vw}
+.tst{display:flex;align-items:center;gap:8px;background:var(--bg3);border:1px solid var(--bd);border-radius:var(--rs);padding:8px 14px;font-size:12px;color:var(--t0);box-shadow:0 8px 32px rgba(0,0,0,.5);font-family:'Inter',sans-serif;animation:slideUp .2s ease}
+.tst svg{width:14px;height:14px;flex-shrink:0}
+.tst.ok{border-color:rgba(82,212,144,.4);color:var(--a3)}
+.tst.err{border-color:rgba(240,112,112,.4);color:var(--dr)}
+.tst.warn{border-color:rgba(240,168,64,.4);color:var(--ht)}
+.tst.inf,.tst.info{border-color:rgba(255,122,26,.4);color:var(--ac)}
+/* preview panel */
+.pvb{padding:8px 14px;background:var(--bg1);border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:10px;flex-shrink:0}
+.pvdot{width:11px;height:11px;border-radius:50%}
+.pvdot:nth-child(1){background:#ef4444}.pvdot:nth-child(2){background:#f59e0b}.pvdot:nth-child(3){background:#22c55e}
+.pvbtn{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:28px;padding:0 8px;border-radius:var(--rs);border:1px solid var(--bd);background:var(--gl);color:var(--t1);font-size:13px;cursor:pointer}
+.pvbtn:hover{color:var(--t0);border-color:var(--ac)}
+.pvtabs{display:flex;gap:5px}
+.pvtab{font-size:11px;padding:4px 10px;border-radius:var(--rs);border:1px solid var(--bd);background:transparent;color:var(--t1);cursor:pointer;font-family:'Inter',sans-serif}
+.pvtab.ac{background:rgba(255,122,26,.1);color:var(--ac);border-color:rgba(255,122,26,.3)}
+.pv-split{flex:1;display:flex;min-height:0}
+.pvif{flex:1;min-width:0;height:100%;border:none;background:#fff}
+.pv-divider{width:6px;flex-shrink:0;background:var(--bd);cursor:col-resize}
+/* editor cards */
+.clbl{flex:1;min-width:0;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--t1);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding-top:3px}
+.fi2{width:100%;background:var(--bg0);border:1px solid var(--bd);border-radius:var(--rs);padding:8px 10px;color:var(--t0);font:400 13px/1.5 'Inter',sans-serif;resize:vertical;outline:none;transition:border-color .15s}
+.fi2:focus{border-color:var(--ac)}
+.fi2.hf{font-weight:600;font-size:14px}
+.stag{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--t2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-bottom:4px}
+.ni-lbl{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ni-typ{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t2);text-transform:uppercase;flex-shrink:0}
+.drag-handle{display:none;align-items:center;justify-content:center;padding:2px 0;color:var(--t2);cursor:grab}
+.drag-handle svg{width:12px;height:12px}
+.es.reorder-on .drag-handle{display:flex}
+/* AI theme generator */
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin:8px 0 14px}
+.tgen{display:flex;align-items:center;justify-content:center;gap:8px;min-height:72px;border:1px dashed var(--bd);border-radius:var(--rs);font-size:11px;color:var(--t2)}
+.tgen .spin{width:14px;height:14px}
+.exp-tabs{display:flex;gap:6px;margin-bottom:8px}
+
+/* ── v5.1 additions: model picker, update bar, a11y, polish ── */
+.logo-ic{border-radius:7px;flex-shrink:0;box-shadow:0 0 0 1px var(--bd),0 2px 10px rgba(255,122,26,.25)}
+.mtab.ac{box-shadow:inset 0 -2px 0 var(--ac),0 1px 4px rgba(0,0,0,.4)}
+.mtab.infuse-tab.ac,.mtab.audit-tab.ac,.mtab.deploy-tab.ac{box-shadow:inset 0 -2px 0 currentColor}
+.kc select{background:var(--bg0);border:1px solid var(--bd);border-radius:var(--rs);padding:9px 12px;color:var(--t0);font-size:12px;font-family:'JetBrains Mono',monospace;outline:none;width:100%}
+.kc select:focus{border-color:var(--ac)}
+.mdl-lbl{font-size:11px;color:var(--t1);margin-top:2px}
+#updBar{position:fixed;right:16px;bottom:16px;z-index:10000;display:flex;align-items:center;gap:10px;background:var(--bg3);border:1px solid var(--ac);border-radius:var(--rs);padding:8px 8px 8px 14px;font-size:12px;color:var(--t0);box-shadow:0 8px 32px rgba(0,0,0,.5)}
+#updBar button{background:var(--ac);color:#0a0a0f;border:0;border-radius:8px;padding:6px 12px;font-weight:600;font-size:12px;cursor:pointer}
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+input:focus-visible,textarea:focus-visible,select:focus-visible{outline-offset:0}
+@media (max-width:768px){#auditGroup .btn,#expBtn{font-size:0;gap:0;padding:6px 9px}#auditGroup{gap:4px!important}}
+@media (max-width:600px){.topbar .logo{display:none}}
+@media (max-width:420px){
+  .topbar{gap:4px;padding:0 6px}
+  .topbar .logo-ic{display:none}
+  .mode-tabs .mtab{padding:4px 6px}
+  .kbtn,#auditGroup .btn,#expBtn{padding:6px 7px}
+  .tr{gap:4px!important}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
@@ -702,8 +762,9 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
 
 <!-- ══════════ TOPBAR ══════════ -->
 <div class="topbar">
+  <img class="logo-ic" src="icon-192.png" alt="" width="28" height="28">
   <div class="logo">INFUSE<span>SI</span></div>
-  <div class="logo-ver" id="verStamp">v5.0</div>
+  <div class="logo-ver appver" id="verStamp">v5.1.0</div>
   <div class="vsep"></div>
 
   <!-- Mode Tabs -->
@@ -819,7 +880,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
       <div class="fl" id="fList"></div>
       <!-- URL Inject -->
       <div class="url-inject-row">
-        <input class="url-inp" id="urlInjectInp" type="url" placeholder="Inject from URL…" onkeydown="if(event.key==='Enter')injectFromUrl()">
+        <input class="url-inp" id="urlInjectInp" type="url" placeholder="Inject from URL…" title="Fetched via the local helper if running, otherwise via corsproxy.io (asks first)" aria-label="Inject from URL" onkeydown="if(event.key==='Enter')injectFromUrl()">
         <button class="btn" onclick="injectFromUrl()" data-tip="Fetch remote HTML via proxy">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
         </button>
@@ -897,7 +958,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
         <input id="searchInp" type="text" placeholder="Search elements…" oninput="searchFields(this.value)"
           style="width:100%;padding:5px 8px 5px 24px;background:var(--bg0);border:1px solid var(--bd);border-radius:var(--rs);color:var(--t0);font-size:11px;font-family:'Inter',sans-serif;outline:none;transition:border-color .15s"
           onfocus="this.style.borderColor='var(--ac)'" onblur="this.style.borderColor='var(--bd)'">
-        <span id="searchCount" style="position:absolute;right:7px;top:50%;transform:translateY(-50%);font-size:9px;font-family:'JetBrains Mono',monospace;color:var(--t2)"></span>
+        <span id="searchCount" style="position:absolute;right:7px;top:50%;transform:translateY(-50%);font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--t2)"></span>
       </div>
     </div>
     <div class="navl" id="navl"><div class="no-items">Start a session to see elements</div></div>
@@ -948,28 +1009,28 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:10px;height:10px;flex-shrink:0"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
         Diff
       </div>
-      <div style="margin-left:auto;font-size:9px;font-family:'JetBrains Mono',monospace;color:var(--t2)" id="featHint">click any toggle to activate</div>
+      <div style="margin-left:auto;font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--t2)" id="featHint">click any toggle to activate</div>
     </div>
     <div class="es" id="es">
       <div class="empty" id="emp">
         <div class="ei" style="width:64px;height:64px;background:linear-gradient(135deg,rgba(99,179,237,.15),rgba(159,122,234,.1));border-color:rgba(99,179,237,.2)">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:28px;height:28px;color:var(--ac)"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
         </div>
-        <h3 style="color:var(--t0)">Welcome to INFUSE v4.0 — The Auditor</h3>
+        <h3 style="color:var(--t0)">Welcome to INFUSE — The Auditor</h3>
         <p style="color:var(--t1);font-size:13px;max-width:280px">Your website editing tool. No coding needed.</p>
         <div style="text-align:left;background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);padding:14px 16px;max-width:280px;margin-top:4px">
           <div style="font-size:11px;color:var(--t2);font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px">3 steps to start</div>
           <div style="display:flex;flex-direction:column;gap:10px">
             <div style="display:flex;gap:10px;align-items:flex-start">
-              <div style="width:22px;height:22px;border-radius:50%;background:var(--ac);color:#07070c;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer" onclick="document.querySelector('#dz input').click()">1</div>
+              <div style="width:22px;height:22px;border-radius:50%;background:var(--ac);color:#07070c;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer" onclick="document.querySelector('#dz input').click()">1</div>
               <div style="font-size:12px;color:var(--t1);line-height:1.4"><span style="color:var(--ac);cursor:pointer;text-decoration:underline dotted" onclick="document.querySelector('#dz input').click()">Drop your HTML file</span> in the panel on the left</div>
             </div>
             <div style="display:flex;gap:10px;align-items:flex-start">
-              <div style="width:22px;height:22px;border-radius:50%;background:var(--a3);color:#07070c;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">2</div>
+              <div style="width:22px;height:22px;border-radius:50%;background:var(--a3);color:#07070c;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">2</div>
               <div style="font-size:12px;color:var(--t1);line-height:1.4">Click <strong style="color:var(--a3)">Open for Editing ▶</strong> — your page content appears as editable cards</div>
             </div>
             <div style="display:flex;gap:10px;align-items:flex-start">
-              <div style="width:22px;height:22px;border-radius:50%;background:var(--ht);color:#07070c;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">3</div>
+              <div style="width:22px;height:22px;border-radius:50%;background:var(--ht);color:#07070c;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">3</div>
               <div style="font-size:12px;color:var(--t1);line-height:1.4">Edit any text, swap any image, then click <strong style="color:var(--ht)">Export</strong> to download</div>
             </div>
           </div>
@@ -1031,7 +1092,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
       </div>
       <div style="display:flex;align-items:center;gap:8px;margin-left:auto">
         <!-- Clone foundation -->
-        <div style="font-size:10px;color:var(--t2);font-family:'JetBrains Mono',monospace">Clone as base:</div>
+        <div style="font-size:11px;color:var(--t2);font-family:'JetBrains Mono',monospace">Clone as base:</div>
         <button class="btn" id="cloneABtn" onclick="cloneAsBase('A')" disabled data-tip="Start Infused from Site A">
           Clone A →
         </button>
@@ -1051,7 +1112,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
         <!-- Status -->
         <div class="si">
           <div class="dot infuse" id="infDot" style="background:var(--t2);box-shadow:none;animation:none"></div>
-          <span id="infuseStatusTxt" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t2)">Load both files</span>
+          <span id="infuseStatusTxt" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--t2)">Load both files</span>
         </div>
       </div>
     </div>
@@ -1081,7 +1142,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
         <button class="ft ai2" data-slot="C" data-f="image" onclick="setInfFilter('C','image',this)">Img<span class="ft-n" id="ifc-C-i"></span></button>
         <button class="ft" data-slot="C" data-f="video" onclick="setInfFilter('C','video',this)" style="color:var(--dr)">Vid</button>
         <button class="ft" data-slot="C" data-f="logo" onclick="setInfFilter('C','logo',this)" style="color:var(--a3)">Logo</button>
-        <span style="margin-left:auto;font-size:9px;font-family:'JetBrains Mono',monospace;color:var(--t2)" id="infModCount">0 modified</span>
+        <span style="margin-left:auto;font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--t2)" id="infModCount">0 modified</span>
       </div>
     </div>
 
@@ -1094,7 +1155,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px;flex-shrink:0"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
           <span>Site A</span>
           <span class="col-count" id="cntA">—</span>
-          <button class="scan-btn" id="scanABtn" onclick="runSingleScan('A')" style="padding:2px 8px;font-size:9px;width:auto;margin-left:auto" disabled>
+          <button class="scan-btn" id="scanABtn" onclick="runSingleScan('A')" style="padding:2px 8px;font-size:10px;width:auto;margin-left:auto" disabled>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:9px;height:9px"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Deep Scan
           </button>
         </div>
@@ -1109,7 +1170,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px;flex-shrink:0"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
           <span>Site B</span>
           <span class="col-count" id="cntB">—</span>
-          <button class="scan-btn" id="scanBBtn" onclick="runSingleScan('B')" style="padding:2px 8px;font-size:9px;width:auto;margin-left:auto" disabled>
+          <button class="scan-btn" id="scanBBtn" onclick="runSingleScan('B')" style="padding:2px 8px;font-size:10px;width:auto;margin-left:auto" disabled>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:9px;height:9px"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Deep Scan
           </button>
         </div>
@@ -1124,8 +1185,8 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px;flex-shrink:0"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
           <span>⚡ Infused</span>
           <span class="col-count" id="cntC">0 items</span>
-          <button class="btn" onclick="clearInfused()" style="padding:1px 7px;font-size:8px;margin-left:auto;color:var(--t2)" data-tip="Clear all infused items">Clear</button>
-          <button class="btn" onclick="aiReviewInfused()" style="padding:1px 7px;font-size:8px;border-color:rgba(249,115,22,.3);color:var(--inf)" data-tip="AI review the infused selection">AI Review</button>
+          <button class="btn" onclick="clearInfused()" style="padding:1px 7px;font-size:10px;margin-left:auto;color:var(--t2)" data-tip="Clear all infused items">Clear</button>
+          <button class="btn" onclick="aiReviewInfused()" style="padding:1px 7px;font-size:10px;border-color:rgba(249,115,22,.3);color:var(--inf)" data-tip="AI review the infused selection">AI Review</button>
         </div>
         <div class="inf-col-body" id="infColC">
           <div class="inf-empty">Click ＋ on any element in A or B to add it here.<br><br>Or use Clone A / Clone B to start from a full site.</div>
@@ -1171,7 +1232,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
   <!-- STEP 1: Drop zone (shown when no files loaded) -->
   <div id="audDropZone" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 40px;gap:20px;overflow-y:auto">
     <div style="text-align:center;max-width:520px">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.18em;color:var(--t2);text-transform:uppercase;margin-bottom:8px">Migration Audit Tool</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;color:var(--t2);text-transform:uppercase;margin-bottom:8px">Migration Audit Tool</div>
       <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:800;background:linear-gradient(135deg,var(--ac),var(--a2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px">Site Cross-Check Scanner</div>
       <p style="font-size:11px;color:var(--t1);line-height:1.55">Load your <strong style="color:var(--ht)">Original</strong> and <strong style="color:var(--a3)">New</strong> site HTML files — or fetch by URL. The scanner maps every page, flags what's missing, renamed, or confirmed, and generates redirect rules.</p>
     </div>
@@ -1179,7 +1240,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;max-width:620px">
       <!-- Original slot -->
       <div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ht);margin-bottom:5px;text-align:center">① Original Site</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ht);margin-bottom:5px;text-align:center">① Original Site</div>
         <div id="audDropA" ondragover="audDzOver(event,'audDropA')" ondragleave="audDzOut('audDropA')" ondrop="audDrop(event,'orig')"
           style="border:2px dashed rgba(246,173,85,.3);border-radius:var(--r);padding:16px 12px;text-align:center;cursor:pointer;transition:all .15s;position:relative;background:rgba(246,173,85,.03)"
           onmouseover="this.style.borderColor='var(--ht)'" onmouseout="if(!AUD.files.orig)this.style.borderColor='rgba(246,173,85,.3)'">
@@ -1188,20 +1249,20 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px;height:12px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
           </div>
           <div id="audSlotA_lbl" style="font-size:11px;color:var(--t1)"><strong style="color:var(--ht)">Click or drop</strong> original HTML</div>
-          <div id="audSlotA_name" style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--a3);margin-top:4px;display:none"></div>
+          <div id="audSlotA_name" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--a3);margin-top:4px;display:none"></div>
         </div>
         <div style="display:flex;gap:4px;margin-top:6px">
           <input id="audUrlA" placeholder="or paste URL…" onkeydown="if(event.key==='Enter')audFetchUrl('orig')"
             style="flex:1;min-width:0;background:var(--bg0);border:1px solid var(--bd);border-radius:var(--rs);padding:5px 8px;color:var(--t0);font-size:11px;font-family:'JetBrains Mono',monospace;outline:none;transition:border-color .15s"
             onfocus="this.style.borderColor='var(--ht)'" onblur="this.style.borderColor='var(--bd)'">
           <button onclick="audFetchUrl('orig')" title="Fetch this URL and load as original site HTML"
-            style="padding:5px 10px;background:rgba(246,173,85,.08);border:1px solid rgba(246,173,85,.2);border-radius:var(--rs);color:var(--ht);font-size:10px;cursor:pointer;white-space:nowrap;transition:all .15s" onmouseover="this.style.background='rgba(246,173,85,.16)'" onmouseout="this.style.background='rgba(246,173,85,.08)'">Fetch</button>
+            style="padding:5px 10px;background:rgba(246,173,85,.08);border:1px solid rgba(246,173,85,.2);border-radius:var(--rs);color:var(--ht);font-size:11px;cursor:pointer;white-space:nowrap;transition:all .15s" onmouseover="this.style.background='rgba(246,173,85,.16)'" onmouseout="this.style.background='rgba(246,173,85,.08)'">Fetch</button>
         </div>
       </div>
 
       <!-- New slot -->
       <div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--a3);margin-bottom:5px;text-align:center">② New Site</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--a3);margin-bottom:5px;text-align:center">② New Site</div>
         <div id="audDropB" ondragover="audDzOver(event,'audDropB')" ondragleave="audDzOut('audDropB')" ondrop="audDrop(event,'new')"
           style="border:2px dashed rgba(104,211,145,.3);border-radius:var(--r);padding:16px 12px;text-align:center;cursor:pointer;transition:all .15s;position:relative;background:rgba(104,211,145,.03)"
           onmouseover="this.style.borderColor='var(--a3)'" onmouseout="if(!AUD.files.new)this.style.borderColor='rgba(104,211,145,.3)'">
@@ -1210,14 +1271,14 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px;height:12px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
           </div>
           <div id="audSlotB_lbl" style="font-size:11px;color:var(--t1)"><strong style="color:var(--a3)">Click or drop</strong> new HTML</div>
-          <div id="audSlotB_name" style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--a3);margin-top:4px;display:none"></div>
+          <div id="audSlotB_name" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--a3);margin-top:4px;display:none"></div>
         </div>
         <div style="display:flex;gap:4px;margin-top:6px">
           <input id="audUrlB" placeholder="or paste URL…" onkeydown="if(event.key==='Enter')audFetchUrl('new')"
             style="flex:1;min-width:0;background:var(--bg0);border:1px solid var(--bd);border-radius:var(--rs);padding:5px 8px;color:var(--t0);font-size:11px;font-family:'JetBrains Mono',monospace;outline:none;transition:border-color .15s"
             onfocus="this.style.borderColor='var(--a3)'" onblur="this.style.borderColor='var(--bd)'">
           <button onclick="audFetchUrl('new')" title="Fetch this URL and load as new site HTML"
-            style="padding:5px 10px;background:rgba(104,211,145,.08);border:1px solid rgba(104,211,145,.2);border-radius:var(--rs);color:var(--a3);font-size:10px;cursor:pointer;white-space:nowrap;transition:all .15s" onmouseover="this.style.background='rgba(104,211,145,.16)'" onmouseout="this.style.background='rgba(104,211,145,.08)'">Fetch</button>
+            style="padding:5px 10px;background:rgba(104,211,145,.08);border:1px solid rgba(104,211,145,.2);border-radius:var(--rs);color:var(--a3);font-size:11px;cursor:pointer;white-space:nowrap;transition:all .15s" onmouseover="this.style.background='rgba(104,211,145,.16)'" onmouseout="this.style.background='rgba(104,211,145,.08)'">Fetch</button>
         </div>
       </div>
     </div>
@@ -1229,8 +1290,8 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;display:inline;vertical-align:middle;margin-right:5px"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         Run Audit Scan
       </button>
-      <div style="font-size:10px;color:var(--t2)">Load both files above to enable — or use the TRS sample below</div>
-      <button onclick="audLoadSample()" style="font-size:10px;color:var(--t2);background:none;border:1px solid var(--bd);border-radius:var(--rs);padding:4px 12px;cursor:pointer;transition:all .15s;font-family:'JetBrains Mono',monospace" onmouseover="this.style.borderColor='var(--ac)';this.style.color='var(--ac)'" onmouseout="this.style.borderColor='var(--bd)';this.style.color='var(--t2)'">Load TRS Sample Data →</button>
+      <div style="font-size:11px;color:var(--t2)">Load both files above to enable — or use the TRS sample below</div>
+      <button onclick="audLoadSample()" style="font-size:11px;color:var(--t2);background:none;border:1px solid var(--bd);border-radius:var(--rs);padding:4px 12px;cursor:pointer;transition:all .15s;font-family:'JetBrains Mono',monospace" onmouseover="this.style.borderColor='var(--ac)';this.style.color='var(--ac)'" onmouseout="this.style.borderColor='var(--bd)';this.style.color='var(--t2)'">Load TRS Sample Data →</button>
     </div>
   </div>
 
@@ -1243,35 +1304,35 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
         style="flex:1;padding:10px 14px;cursor:pointer;border-right:1px solid var(--bd);border-bottom:3px solid var(--ac);background:var(--bg2);transition:all .15s;display:flex;flex-direction:column;gap:2px"
         title="Show all pages — click to filter">
         <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--ac)" id="acnt-all">0</div>
-        <div style="font-size:9px;color:var(--t2);text-transform:uppercase;letter-spacing:.06em">All Pages</div>
+        <div style="font-size:10px;color:var(--t2);text-transform:uppercase;letter-spacing:.06em">All Pages</div>
       </div>
       <div class="aud-stat" id="as-missing" onclick="audSetFilter('missing',this)"
         style="flex:1;padding:10px 14px;cursor:pointer;border-right:1px solid var(--bd);border-bottom:3px solid transparent;background:var(--bg1);transition:all .15s;display:flex;flex-direction:column;gap:2px"
         title="Pages on original site with NO match on new site — need placeholder pages or must be built">
         <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--dr)" id="acnt-missing">0</div>
-        <div style="font-size:9px;color:var(--t2);text-transform:uppercase;letter-spacing:.06em">⚠ Missing</div>
-        <div style="font-size:9px;color:var(--t2)">Not on new site</div>
+        <div style="font-size:10px;color:var(--t2);text-transform:uppercase;letter-spacing:.06em">⚠ Missing</div>
+        <div style="font-size:10px;color:var(--t2)">Not on new site</div>
       </div>
       <div class="aud-stat" id="as-renamed" onclick="audSetFilter('renamed',this)"
         style="flex:1;padding:10px 14px;cursor:pointer;border-right:1px solid var(--bd);border-bottom:3px solid transparent;background:var(--bg1);transition:all .15s;display:flex;flex-direction:column;gap:2px"
         title="Pages found on both sites but at different URL paths — need 301 redirects">
         <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--ht)" id="acnt-renamed">0</div>
-        <div style="font-size:9px;color:var(--t2);text-transform:uppercase;letter-spacing:.06em">~ Renamed</div>
-        <div style="font-size:9px;color:var(--t2)">URL changed</div>
+        <div style="font-size:10px;color:var(--t2);text-transform:uppercase;letter-spacing:.06em">~ Renamed</div>
+        <div style="font-size:10px;color:var(--t2)">URL changed</div>
       </div>
       <div class="aud-stat" id="as-confirmed" onclick="audSetFilter('confirmed',this)"
         style="flex:1;padding:10px 14px;cursor:pointer;border-right:1px solid var(--bd);border-bottom:3px solid transparent;background:var(--bg1);transition:all .15s;display:flex;flex-direction:column;gap:2px"
         title="Pages with identical slugs on both sites — no action needed">
         <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--a3)" id="acnt-confirmed">0</div>
-        <div style="font-size:9px;color:var(--t2);text-transform:uppercase;letter-spacing:.06em">✓ Confirmed</div>
-        <div style="font-size:9px;color:var(--t2)">Same URL — OK</div>
+        <div style="font-size:10px;color:var(--t2);text-transform:uppercase;letter-spacing:.06em">✓ Confirmed</div>
+        <div style="font-size:10px;color:var(--t2)">Same URL — OK</div>
       </div>
       <div class="aud-stat" id="as-new_only" onclick="audSetFilter('new_only',this)"
         style="flex:1;padding:10px 14px;cursor:pointer;border-bottom:3px solid transparent;background:var(--bg1);transition:all .15s;display:flex;flex-direction:column;gap:2px"
         title="Pages only on the new site — not present on original">
         <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--a2)" id="acnt-new">0</div>
-        <div style="font-size:9px;color:var(--t2);text-transform:uppercase;letter-spacing:.06em">+ New Only</div>
-        <div style="font-size:9px;color:var(--t2)">Added to new</div>
+        <div style="font-size:10px;color:var(--t2);text-transform:uppercase;letter-spacing:.06em">+ New Only</div>
+        <div style="font-size:10px;color:var(--t2)">Added to new</div>
       </div>
     </div>
 
@@ -1297,7 +1358,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.83"/></svg>
         New Scan
       </button>
-      <div style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t2)">
+      <div style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--t2)">
         <span id="audRowCount" style="color:var(--ac)">0</span> pages
       </div>
     </div>
@@ -1307,11 +1368,11 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
       <table style="width:100%;border-collapse:collapse;font-size:12px">
         <thead>
           <tr>
-            <th title="Page status — hover each badge for what action is needed" style="background:var(--bg2);padding:8px 14px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--t2);font-weight:400;border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:10">Status</th>
-            <th title="URL path on the original site" style="background:var(--bg2);padding:8px 14px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--t2);font-weight:400;border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:10">Original Path</th>
-            <th title="Full URL on the original site — click to open" style="background:var(--bg2);padding:8px 14px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--t2);font-weight:400;border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:10">Original URL</th>
-            <th title="Full URL on new site — blank = missing" style="background:var(--bg2);padding:8px 14px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--t2);font-weight:400;border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:10">New Site URL</th>
-            <th title="Open pages in new tabs, or generate placeholder HTML for missing pages" style="background:var(--bg2);padding:8px 14px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--t2);font-weight:400;border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:10">Actions</th>
+            <th title="Page status — hover each badge for what action is needed" style="background:var(--bg2);padding:8px 14px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--t2);font-weight:400;border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:10">Status</th>
+            <th title="URL path on the original site" style="background:var(--bg2);padding:8px 14px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--t2);font-weight:400;border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:10">Original Path</th>
+            <th title="Full URL on the original site — click to open" style="background:var(--bg2);padding:8px 14px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--t2);font-weight:400;border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:10">Original URL</th>
+            <th title="Full URL on new site — blank = missing" style="background:var(--bg2);padding:8px 14px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--t2);font-weight:400;border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:10">New Site URL</th>
+            <th title="Open pages in new tabs, or generate placeholder HTML for missing pages" style="background:var(--bg2);padding:8px 14px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--t2);font-weight:400;border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:10">Actions</th>
           </tr>
         </thead>
         <tbody id="audTbl"></tbody>
@@ -1331,11 +1392,11 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
       </div>
     </div>
     <div style="display:flex;border-bottom:1px solid var(--bd);flex-shrink:0">
-      <div class="aud-rtab active" id="artab-htaccess" onclick="audSwitchRTab('htaccess',this)" title="Apache .htaccess — works on cPanel/shared hosting" style="flex:1;padding:8px;text-align:center;font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--ac);cursor:pointer;border-bottom:2px solid var(--ac);background:var(--bg1);transition:all .15s">.htaccess</div>
-      <div class="aud-rtab" id="artab-nginx" onclick="audSwitchRTab('nginx',this)" title="Nginx — paste inside server {} block" style="flex:1;padding:8px;text-align:center;font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--t2);cursor:pointer;border-bottom:2px solid transparent;transition:all .15s">Nginx</div>
-      <div class="aud-rtab" id="artab-list" onclick="audSwitchRTab('list',this)" title="Plain list — for WordPress redirect plugins or Cloudflare" style="flex:1;padding:8px;text-align:center;font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--t2);cursor:pointer;border-bottom:2px solid transparent;transition:all .15s">Plain List</div>
+      <div class="aud-rtab active" id="artab-htaccess" onclick="audSwitchRTab('htaccess',this)" title="Apache .htaccess — works on cPanel/shared hosting" style="flex:1;padding:8px;text-align:center;font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--ac);cursor:pointer;border-bottom:2px solid var(--ac);background:var(--bg1);transition:all .15s">.htaccess</div>
+      <div class="aud-rtab" id="artab-nginx" onclick="audSwitchRTab('nginx',this)" title="Nginx — paste inside server {} block" style="flex:1;padding:8px;text-align:center;font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--t2);cursor:pointer;border-bottom:2px solid transparent;transition:all .15s">Nginx</div>
+      <div class="aud-rtab" id="artab-list" onclick="audSwitchRTab('list',this)" title="Plain list — for WordPress redirect plugins or Cloudflare" style="flex:1;padding:8px;text-align:center;font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--t2);cursor:pointer;border-bottom:2px solid transparent;transition:all .15s">Plain List</div>
     </div>
-    <div id="audRedirBody" style="flex:1;overflow-y:auto;padding:14px 16px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t1);line-height:1.9;white-space:pre-wrap;background:var(--bg0)"></div>
+    <div id="audRedirBody" style="flex:1;overflow-y:auto;padding:14px 16px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--t1);line-height:1.9;white-space:pre-wrap;background:var(--bg0)"></div>
     <div style="padding:10px 16px;border-top:1px solid var(--bd);flex-shrink:0;display:flex;gap:8px">
       <button class="btn" onclick="audCloseRedirPanel()">Close</button>
       <button class="btn prim" onclick="audCopyRedirs()" title="Copy all redirect rules to clipboard" style="margin-left:auto">
@@ -1385,7 +1446,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
       <div>
         <div class="deploy-panel-lbl" style="display:flex;align-items:center;gap:8px">
           Output
-          <span id="dp-stripped-badge" style="display:none;font-size:9px;font-weight:600;padding:2px 7px;border-radius:var(--rs);background:rgba(82,212,144,.1);color:var(--a3);border:1px solid rgba(82,212,144,.25)">✓ stripped</span>
+          <span id="dp-stripped-badge" style="display:none;font-size:10px;font-weight:600;padding:2px 7px;border-radius:var(--rs);background:rgba(82,212,144,.1);color:var(--a3);border:1px solid rgba(82,212,144,.25)">✓ stripped</span>
         </div>
         <textarea class="deploy-ta" id="dp-output" readonly placeholder="Stripped output appears here…"></textarea>
         <div style="display:flex;gap:8px;margin-top:8px;align-items:center">
@@ -1424,20 +1485,20 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
         <div class="ms">A temporary branded page that keeps the URL alive on the new site while you build the real page. Upload the downloaded HTML to the new server at the slug path below.</div>
       </div>
     </div>
-    <div style="padding:14px;background:var(--bg0);border:1px solid var(--bd);border-radius:var(--rs);font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t2);margin-bottom:4px;word-break:break-all;line-height:1.6">
+    <div style="padding:14px;background:var(--bg0);border:1px solid var(--bd);border-radius:var(--rs);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--t2);margin-bottom:4px;word-break:break-all;line-height:1.6">
       Missing page: <span id="audPhOrig" style="color:var(--ht)"></span>
     </div>
     <div style="display:flex;flex-direction:column;gap:5px">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--t2)">New site slug — folder name to upload to on new server</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--t2)">New site slug — folder name to upload to on new server</div>
       <input id="audPhSlug" class="inp" placeholder="e.g. careers" oninput="audUpdatePhPre()">
     </div>
     <div style="display:flex;flex-direction:column;gap:5px;margin-top:8px">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--t2)">Page title — shown on the placeholder page</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--t2)">Page title — shown on the placeholder page</div>
       <input id="audPhTitle" class="inp" placeholder="e.g. Careers at TRS" oninput="audUpdatePhPre()">
     </div>
     <div style="display:flex;flex-direction:column;gap:5px;margin-top:8px">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--t2)">Preview — what will be downloaded</div>
-      <div id="audPhPre" style="background:var(--bg0);border:1px solid var(--bd);border-radius:var(--rs);padding:10px 12px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t1);line-height:1.75;max-height:90px;overflow-y:auto"></div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--t2)">Preview — what will be downloaded</div>
+      <div id="audPhPre" style="background:var(--bg0);border:1px solid var(--bd);border-radius:var(--rs);padding:10px 12px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--t1);line-height:1.75;max-height:90px;overflow-y:auto"></div>
     </div>
     <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:14px">
       <button class="btn" onclick="audCloseModal()">Cancel</button>
@@ -1461,7 +1522,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
       <button class="btn mc" onclick="closeKeys()">✕</button>
     </div>
     <div class="ai-info">
-      Key stored <strong>in browser memory only</strong> — never saved to disk.<br><br>
+      Your key stays in this browser and is sent <strong>only to api.groq.com</strong>. It is saved on this device only if you turn on “Remember Groq key” in Settings.<br><br>
       Get a free key at <a href="https://console.groq.com/keys" target="_blank">console.groq.com/keys →</a>
     </div>
     <div class="kc">
@@ -1471,6 +1532,17 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
       </div>
       <input type="password" id="groqKeyIn" placeholder="gsk_…" autocomplete="off" onkeydown="if(event.key==='Enter')saveKey()">
       <div class="kc-st" id="keySt"></div>
+    </div>
+    <div class="kc" id="modelBox">
+      <div class="kc-title" style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+        <span>Models</span>
+        <button class="btn" id="mdlRefresh" onclick="refreshModels()" aria-label="Refresh model list from Groq">↻ Refresh</button>
+      </div>
+      <label class="mdl-lbl" for="mdlFast">Fast model — chat, rewrites, suggestions</label>
+      <select id="mdlFast" onchange="pickModel('fast',this.value)"></select>
+      <label class="mdl-lbl" for="mdlBig">Deep model — scans, reviews, themes</label>
+      <select id="mdlBig" onchange="pickModel('big',this.value)"></select>
+      <div class="kc-st" id="mdlSt"></div>
     </div>
     <div class="ma">
       <button class="btn" onclick="closeKeys()">Cancel</button>
@@ -1616,7 +1688,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
       <div class="mi" style="background:linear-gradient(135deg,rgba(99,179,237,.18),rgba(159,122,234,.12));border:1px solid rgba(99,179,237,.28);color:var(--ac)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
       </div>
-      <div><div class="mt">Settings</div><div class="ms">INFUSE v3.0 — Keys, Import/Export, Preferences</div></div>
+      <div><div class="mt">Settings</div><div class="ms">INFUSE <span class="appver"></span> — Keys, Models, Import/Export, Preferences</div></div>
       <button class="btn mc" onclick="closeSettings()">✕</button>
     </div>
 
@@ -1625,10 +1697,10 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
     <div class="set-row">
       <div class="set-lbl">
         <div style="font-size:11px;color:var(--t0)">Groq API Key</div>
-        <div style="font-size:10px;color:var(--t2)">Powers all AI features — free at console.groq.com</div>
+        <div style="font-size:11px;color:var(--t2)">Powers all AI features — free at console.groq.com</div>
       </div>
       <div style="display:flex;gap:6px;align-items:center;flex-shrink:0">
-        <div class="kc-st" id="setKeySt" style="font-size:9px"></div>
+        <div class="kc-st" id="setKeySt" style="font-size:10px"></div>
         <button class="kbtn" id="setKBtn" onclick="openKeysFromSettings()">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:10px;height:10px"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5"/></svg>
           <span id="setKLbl">Set Key</span>
@@ -1641,7 +1713,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
     <div class="set-row">
       <div class="set-lbl">
         <div style="font-size:11px;color:var(--t0)">Export all settings</div>
-        <div style="font-size:10px;color:var(--t2)">Saves Groq key, app theme, feedback notes, and preferences to a JSON file</div>
+        <div style="font-size:11px;color:var(--t2)">Saves models, app theme, feedback notes, and preferences to a JSON file. You choose whether the Groq key is included (plain text).</div>
       </div>
       <button class="btn" onclick="exportSettings()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -1654,7 +1726,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
     <div class="set-row">
       <div class="set-lbl">
         <div style="font-size:11px;color:var(--t0)">Import settings</div>
-        <div style="font-size:10px;color:var(--t2)">Restore key, theme, notes, and preferences from a previously exported JSON</div>
+        <div style="font-size:11px;color:var(--t2)">Restore key, theme, notes, and preferences from a previously exported JSON</div>
       </div>
       <label class="btn" style="cursor:pointer">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
@@ -1668,7 +1740,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
     <div class="set-row">
       <div class="set-lbl">
         <div style="font-size:11px;color:var(--t0)">App Theme</div>
-        <div style="font-size:10px;color:var(--t2)">Global color scheme for the INFUSE interface</div>
+        <div style="font-size:11px;color:var(--t2)">Global color scheme for the INFUSE interface</div>
       </div>
       <div class="quick-themes" style="margin-bottom:0;flex-wrap:nowrap;gap:3px" id="setThemeRow">
         <button class="qt active-qt" data-t="default" onclick="applyAppThemeFromSettings(this,'default')">Default</button>
@@ -1685,7 +1757,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
     <div class="set-row" style="margin-top:4px">
       <div class="set-lbl">
         <div style="font-size:11px;color:var(--t0)">Remember Groq key in localStorage</div>
-        <div style="font-size:10px;color:var(--t2)">Key persists across browser sessions on this device</div>
+        <div style="font-size:11px;color:var(--t2)">Stored unencrypted in this browser’s localStorage so it survives restarts. Leave off on shared devices.</div>
       </div>
       <button class="tog" id="persistKeyTog" onclick="togglePersistKey()">
         <div class="sw"></div><span id="persistKeyLbl">Off</span>
@@ -1694,10 +1766,10 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
 
     <!-- App info -->
     <div class="cptitle" style="margin-top:12px">About</div>
-    <div style="background:var(--bg0);border:1px solid var(--bd);border-radius:var(--rs);padding:10px 12px;font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--t2);line-height:1.8">
-      INFUSE Site Injector <span style="color:var(--ac)">v3.0</span><br>
+    <div style="background:var(--bg0);border:1px solid var(--bd);border-radius:var(--rs);padding:10px 12px;font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--t2);line-height:1.8">
+      INFUSE Site Injector <span class="appver" style="color:var(--ac)">v5.1.0</span><br>
       HTML editor &amp; two-site INFUSE mashup tool<br>
-      AI powered by <span style="color:#f97316">Groq (llama-3.3-70b-versatile)</span><br>
+      AI powered by <span style="color:#f97316">Groq · <span id="aboutModels">llama-3.3-70b-versatile</span></span><br>
       Hosted on GitHub Pages · Single-file PWA · No build tools
     </div>
 
@@ -1743,21 +1815,89 @@ const S = {
   undoStack:[], // [{id, type, old, new}]
 };
 
-const APP_VER = 'v2.0';
+const APP_VER = '5.1.0'; // keep in sync with VERSION in sw.js
 const APP_KEY = 'INFUSE-SI';
+
+// ════════════════════════════════════════
+// GROQ MODEL PICKER (additive: defaults and saved choices are never replaced)
+// ════════════════════════════════════════
+const MODEL_DEFAULTS = { fast:'llama-3.1-8b-instant', big:'llama-3.3-70b-versatile' };
+const MODEL_SKIP = /whisper|tts|playai|orpheus|guard|safeguard|embed|transcri/i;
+function loadModelPrefs() {
+  let m = {};
+  try { m = JSON.parse(localStorage.getItem('infuse_models') || '{}') || {}; } catch(e) {}
+  S.modelFast = m.fast || MODEL_DEFAULTS.fast;
+  S.modelBig  = m.big  || MODEL_DEFAULTS.big;
+  S.modelList = Array.isArray(m.list) ? m.list : [];
+  S.modelFetched = m.fetched || 0;
+}
+function saveModelPrefs() {
+  try { localStorage.setItem('infuse_models', JSON.stringify({ fast:S.modelFast, big:S.modelBig, list:S.modelList, fetched:S.modelFetched })); } catch(e) {}
+}
+function pickModel(which, id) {
+  if (which === 'fast') S.modelFast = id; else S.modelBig = id;
+  saveModelPrefs(); renderModelPicker();
+}
+function renderModelPicker() {
+  const list = S.modelList || [];
+  const known = new Set(list);
+  const fill = (selId, cur) => {
+    const el = document.getElementById(selId); if (!el) return;
+    const ids = [...list];
+    // keep defaults and the saved choice even when missing from the fetched list
+    [MODEL_DEFAULTS.fast, MODEL_DEFAULTS.big, cur].forEach(m => { if (m && !ids.includes(m)) ids.push(m); });
+    el.innerHTML = '';
+    ids.forEach(id => {
+      const o = document.createElement('option');
+      o.value = id;
+      o.textContent = id + ((list.length && !known.has(id)) ? '  (not in current list)' : '');
+      if (id === cur) o.selected = true;
+      el.appendChild(o);
+    });
+  };
+  fill('mdlFast', S.modelFast); fill('mdlBig', S.modelBig);
+  const st = document.getElementById('mdlSt');
+  if (st) {
+    const missing = list.length ? [S.modelFast, S.modelBig].filter(m => !known.has(m)) : [];
+    if (missing.length) { st.textContent = '⚠ ' + missing.join(', ') + ' is not in Groq’s current list. Kept as selected; switch if requests fail.'; st.className = 'kc-st err'; }
+    else if (list.length) { st.textContent = list.length + ' chat models · updated ' + new Date(S.modelFetched).toLocaleDateString(); st.className = 'kc-st ok'; }
+    else { st.textContent = 'Using built-in defaults. Save a key or press Refresh to load Groq’s list.'; st.className = 'kc-st'; }
+  }
+  const ab = document.getElementById('aboutModels');
+  if (ab) ab.textContent = S.modelBig;
+}
+async function refreshModels(quiet) {
+  if (!S.groqKey) { if (!quiet) toast('Set your Groq key first', 'err'); return false; }
+  const cleanKey = S.groqKey.replace(/[^\x20-\x7E]/g, '').trim();
+  const btn = document.getElementById('mdlRefresh'); if (btn) btn.disabled = true;
+  try {
+    const r = await fetch('https://api.groq.com/openai/v1/models', { headers:{ 'Authorization':'Bearer ' + cleanKey }, signal: AbortSignal.timeout(12000) });
+    const d = await r.json();
+    if (d.error) throw new Error(d.error.message);
+    const ids = (d.data || []).filter(m => m && m.id && m.active !== false && !MODEL_SKIP.test(m.id)).map(m => m.id).sort();
+    if (!ids.length) throw new Error('no chat models returned');
+    S.modelList = ids; S.modelFetched = Date.now(); saveModelPrefs(); renderModelPicker();
+    if (!quiet) toast(ids.length + ' Groq models loaded', 'ok');
+    return true;
+  } catch (err) {
+    if (!quiet) toast('Model refresh failed: ' + err.message, 'err');
+    return false;
+  } finally { if (btn) btn.disabled = false; }
+}
+loadModelPrefs();
 
 // ════════════════════════════════════════
 // GROQ API
 // ════════════════════════════════════════
 // groq(msgs, maxTok, fast)
-// fast=true  → llama-3.1-8b-instant  (per-minute limit: 20k tokens, good for rewrites/suggestions)
-// fast=false → llama-3.3-70b-versatile (per-minute limit: 12k, use only for heavy reasoning)
+// fast=true  → S.modelFast (default llama-3.1-8b-instant: rewrites/suggestions)
+// fast=false → S.modelBig  (default llama-3.3-70b-versatile: heavy reasoning)
 async function groq(msgs, maxTok=300, fast=true) {
   if (!S.groqKey) { toast('Set your Groq key first (⚙ Settings or key button)', 'err'); return null; }
   // Sanitize key — strip any non-ASCII/non-latin1 characters that corrupt the header
   const cleanKey = S.groqKey.replace(/[^\x20-\x7E]/g, '').trim();
   if (!cleanKey) { toast('Groq key contains invalid characters — re-enter it in Settings', 'err'); return null; }
-  const model = fast ? 'llama-3.1-8b-instant' : 'llama-3.3-70b-versatile';
+  const model = fast ? (S.modelFast || MODEL_DEFAULTS.fast) : (S.modelBig || MODEL_DEFAULTS.big);
   // Hard token cap to stay under free-tier TPM limits
   const cappedTok = Math.min(maxTok, fast ? 500 : 800);
   const r = await fetch('https://api.groq.com/openai/v1/chat/completions', {
@@ -1861,6 +2001,7 @@ function openKeys() {
   st.textContent = S.groqKey ? '✓ Key is active' : '';
   st.className = 'kc-st' + (S.groqKey ? ' ok' : '');
   document.getElementById('clrBtn').style.display = S.groqKey ? 'inline-flex' : 'none';
+  renderModelPicker();
   document.getElementById('keyMod').classList.add('show');
   setTimeout(() => document.getElementById('groqKeyIn').focus(), 80);
 }
@@ -1871,6 +2012,7 @@ function saveKey() {
   if (!v.startsWith('gsk_') && v.length < 10) { st.textContent = '⚠ Key should start with gsk_…'; st.className = 'kc-st err'; return; }
   S.groqKey = v; updateKeyBtn(); closeKeys();
   toast('Groq key saved — AI features active!', 'ok');
+  refreshModels(false);
 }
 function clearKey() { S.groqKey=''; updateKeyBtn(); closeKeys(); toast('Key cleared','inf'); }
 function updateKeyBtn() {
@@ -2120,12 +2262,12 @@ function infCardReadOnly(f, i, slot) {
     const isPoster = !!f.poster;
     return `<div class="infc" id="infc_${esc(f.id)}" style="border-color:${borderC}">
       <div class="infc-hdr">
-        <span class="bdg" style="background:rgba(252,129,129,.11);color:var(--dr);border:1px solid rgba(252,129,129,.2);font-size:8px">${f.tag}</span>
+        <span class="bdg" style="background:rgba(252,129,129,.11);color:var(--dr);border:1px solid rgba(252,129,129,.2);font-size:10px">${f.tag}</span>
         <span class="infc-lbl">${esc(f.label)}</span>
         <button class="infc-add ${alreadyAdded?'added':''}" onclick="addToInfused('${esc(f.id)}','${slot}')">${alreadyAdded?'✓':'＋'}</button>
       </div>
-      ${src?`<div style="font-size:9px;font-family:'JetBrains Mono',monospace;color:var(--t2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:4px">${esc(src.substring(0,50))}</div>`:''}
-      ${isPoster?`<div style="font-size:9px;color:var(--t2);margin-top:2px">poster: ${esc(f.poster.substring(0,40))}</div>`:''}
+      ${src?`<div style="font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--t2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:4px">${esc(src.substring(0,50))}</div>`:''}
+      ${isPoster?`<div style="font-size:10px;color:var(--t2);margin-top:2px">poster: ${esc(f.poster.substring(0,40))}</div>`:''}
     </div>`;
   }
 
@@ -2133,7 +2275,7 @@ function infCardReadOnly(f, i, slot) {
     const hasSrc = f.src && f.src.trim();
     return `<div class="infc" id="infc_${esc(f.id)}" style="border-color:${borderC}">
       <div class="infc-hdr">
-        <span class="bdg bi" style="font-size:8px">${f.source==='groq'?'groq img':'image'}</span>
+        <span class="bdg bi" style="font-size:10px">${f.source==='groq'?'groq img':'image'}</span>
         <span class="infc-lbl">${esc(f.label)}</span>
         <button class="infc-add ${alreadyAdded?'added':''}" onclick="addToInfused('${esc(f.id)}','${slot}')" data-tip="${alreadyAdded?'Already added':'Add to Infused'}">
           ${alreadyAdded?'✓':'＋'}
@@ -2144,15 +2286,15 @@ function infCardReadOnly(f, i, slot) {
           ${hasSrc?`<img src="${esc(f.src)}" alt="${esc(f.alt)}" style="width:100%;height:100%;object-fit:cover;border-radius:4px">`:`<div class="iph" style="border-radius:4px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:14px;height:14px"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>`}
         </div>
         <div style="flex:1;min-width:0">
-          <div style="font-size:9px;font-family:'JetBrains Mono',monospace;color:var(--t2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc((f.src||'').substring(0,36))}</div>
-          <div style="font-size:10px;color:var(--t1);margin-top:2px">${esc(f.alt||'—')}</div>
+          <div style="font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--t2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc((f.src||'').substring(0,36))}</div>
+          <div style="font-size:11px;color:var(--t1);margin-top:2px">${esc(f.alt||'—')}</div>
         </div>
       </div>
     </div>`;
   }
   return `<div class="infc" id="infc_${esc(f.id)}" style="border-color:${borderC}">
     <div class="infc-hdr">
-      <span class="bdg ${isH?'bh':'bt'}" style="font-size:8px">${f.type}</span>
+      <span class="bdg ${isH?'bh':'bt'}" style="font-size:10px">${f.type}</span>
       <span class="infc-lbl">${esc(f.label)}</span>
       <button class="infc-add ${alreadyAdded?'added':''}" onclick="addToInfused('${esc(f.id)}','${slot}')" data-tip="${alreadyAdded?'Already added':'Add to Infused'}">
         ${alreadyAdded?'✓':'＋'}
@@ -2164,13 +2306,13 @@ function infCardReadOnly(f, i, slot) {
 
 function infCardEditable(f, i) {
   const isH = f.type==='heading', isImg = f.type==='image';
-  const srcBadge = f.srcSlot ? `<span style="font-size:7px;font-family:'JetBrains Mono',monospace;color:${f.srcSlot==='A'?'var(--ac)':'var(--inf)'};padding:1px 4px;border:1px solid ${f.srcSlot==='A'?'rgba(99,179,237,.3)':'rgba(249,115,22,.3)'};border-radius:2px">from ${f.srcSlot}</span>` : '';
+  const srcBadge = f.srcSlot ? `<span style="font-size:10px;font-family:'JetBrains Mono',monospace;color:${f.srcSlot==='A'?'var(--ac)':'var(--inf)'};padding:1px 4px;border:1px solid ${f.srcSlot==='A'?'rgba(99,179,237,.3)':'rgba(249,115,22,.3)'};border-radius:2px">from ${f.srcSlot}</span>` : '';
 
   if (isImg) {
     const hasSrc = f.src && f.src.trim();
     return `<div class="infc infc-edit" id="infce_${esc(f.id)}" style="animation-delay:${Math.min(i*15,260)}ms">
       <div class="infc-hdr">
-        <span class="bdg bi" style="font-size:8px">image</span>${srcBadge}
+        <span class="bdg bi" style="font-size:10px">image</span>${srcBadge}
         <div class="ca" style="margin-left:auto">
           <button class="ab" onclick="infcAiAlt('${esc(f.id)}')" data-tip="AI alt text" style="border-color:rgba(249,115,22,.3);color:var(--inf)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/></svg></button>
           <button class="ab" onclick="infcReset('${esc(f.id)}')" data-tip="Undo changes to this field — restore original"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.83"/></svg></button>
@@ -2183,7 +2325,7 @@ function infCardEditable(f, i) {
           <div class="iov"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/></svg></div>
         </div>
         <div class="ict">
-          <label class="ub" style="font-size:10px"><input type="file" id="infcImgF_${esc(f.id)}" accept="image/*" onchange="infcUpImg('${esc(f.id)}',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:9px;height:9px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/></svg>Upload</label>
+          <label class="ub" style="font-size:11px"><input type="file" id="infcImgF_${esc(f.id)}" accept="image/*" onchange="infcUpImg('${esc(f.id)}',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:9px;height:9px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/></svg>Upload</label>
           <input type="text" class="fi2 alt-in" id="infcAlt_${esc(f.id)}" value="${esc(f.alt)}" placeholder="Alt text…" oninput="infcOnAlt('${esc(f.id)}',this)">
           <div id="infcSug_${esc(f.id)}"></div>
         </div>
@@ -2192,7 +2334,7 @@ function infCardEditable(f, i) {
   }
   return `<div class="infc infc-edit" id="infce_${esc(f.id)}" style="animation-delay:${Math.min(i*15,260)}ms">
     <div class="infc-hdr">
-      <span class="bdg ${isH?'bh':'bt'}" style="font-size:8px">${f.type}</span>${srcBadge}
+      <span class="bdg ${isH?'bh':'bt'}" style="font-size:10px">${f.type}</span>${srcBadge}
       <div class="ca" style="margin-left:auto">
         <button class="ab" onclick="infcGroqSuggest('${esc(f.id)}')" data-tip="Ask AI to suggest an improvement for this text"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></button>
         <button class="ab" onclick="infcAutoWrite('${esc(f.id)}')" data-tip="AI auto-write" style="border-color:rgba(249,115,22,.3);color:var(--inf)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></button>
@@ -2405,7 +2547,7 @@ function buildInfused(){
     bSt.textContent=`/* ⚡ Infused CSS vars from Site B */\n:root {\n${Object.entries(IS.parsedB.cssVars).map(([k,v])=>`  ${k}: ${v};`).join('\n')}\n}`;
     out.head.appendChild(bSt);
   }
-  out.body.appendChild(out.createComment(' ⚡ INFUSE v3.0 — infused.html '));
+  out.body.appendChild(out.createComment(' ⚡ INFUSE v'+APP_VER+' — infused.html '));
   let lastSlot=null;
   IS.infFields.forEach(f=>{
     if(f.srcSlot!==lastSlot){out.body.appendChild(out.createComment(` from Site ${f.srcSlot} `));lastSlot=f.srcSlot;}
@@ -2524,7 +2666,7 @@ function startSession() {
   const sb = document.getElementById('searchBar'); if(sb) sb.style.display='block';
   document.getElementById('stF').textContent = file.name;
   // expBtn always enabled — context handled in showExportCtx
-  document.getElementById('emp').style.display = 'none';
+  const _emp = document.getElementById('emp'); if (_emp) _emp.style.display = 'none'; // guard: parseFields() can already have cleared the empty state
   document.getElementById('scanBtn').classList.remove('locked');
   extractPageColors(file.content);
   // V4.0: show audit + migrate buttons
@@ -2861,7 +3003,7 @@ function videoCard(f, i) {
       <div class="media-controls">
         <div class="media-field-lbl">Poster Image</div>
         <input class="fi2" style="font-size:11px;padding:4px 8px;height:28px;margin-bottom:4px" id="poster_${f.id}" value="${esc(f.poster||'')}" placeholder="URL or upload below…" oninput="onPoster('${f.id}',this)">
-        <label class="ub" style="font-size:10px;height:26px">
+        <label class="ub" style="font-size:11px;height:26px">
           <input type="file" accept="image/*" onchange="upPoster('${f.id}',this)" style="display:none">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:10px;height:10px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/></svg>
           Upload poster image
@@ -2874,7 +3016,7 @@ function videoCard(f, i) {
       <div class="media-field-lbl">Video Source ${sources.length>1?si+1:''} <span style="color:var(--t2);font-weight:400">${s.type||''}</span></div>
       <div style="display:flex;gap:4px;align-items:center">
         <input class="fi2" style="font-size:11px;padding:4px 8px;height:28px;flex:1" id="vsrc_${f.id}_${si}" value="${esc(s.src)}" placeholder="video URL or path…" oninput="onVideoSrc('${f.id}',${si},this)">
-        <label class="ub" style="font-size:10px;height:28px;flex-shrink:0;white-space:nowrap" title="Upload and embed video as base64">
+        <label class="ub" style="font-size:11px;height:28px;flex-shrink:0;white-space:nowrap" title="Upload and embed video as base64">
           <input type="file" accept="video/*" onchange="upVideoSrc('${f.id}',${si},this)" style="display:none">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:10px;height:10px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/></svg>
           Upload
@@ -2888,7 +3030,7 @@ function videoCard(f, i) {
       <div class="media-field-lbl">Video Source</div>
       <div style="display:flex;gap:4px;align-items:center">
         <input class="fi2" style="font-size:11px;padding:4px 8px;height:28px;flex:1" id="vsrc_${f.id}_0" value="" placeholder="video URL or path…" oninput="onVideoSrcNew('${f.id}',this)">
-        <label class="ub" style="font-size:10px;height:28px;flex-shrink:0;white-space:nowrap">
+        <label class="ub" style="font-size:11px;height:28px;flex-shrink:0;white-space:nowrap">
           <input type="file" accept="video/*" onchange="upVideoSrc('${f.id}',0,this)" style="display:none">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:10px;height:10px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/></svg>
           Upload
@@ -3051,7 +3193,7 @@ function logoCard(f, i) {
       <div class="media-field-lbl" style="margin-top:8px">Image src</div>
       <div style="display:flex;gap:4px;margin-bottom:6px">
         <input class="fi2" style="font-size:11px;padding:4px 8px;height:28px;flex:1" id="logoSrc_${f.id}" value="${esc(f.src||'')}" placeholder="URL or upload →" oninput="onLogoSrc('${f.id}',this)">
-        <label class="ub" style="font-size:10px;height:28px;flex-shrink:0;white-space:nowrap;border-color:rgba(104,211,145,.4);color:var(--a3)">
+        <label class="ub" style="font-size:11px;height:28px;flex-shrink:0;white-space:nowrap;border-color:rgba(104,211,145,.4);color:var(--a3)">
           <input type="file" accept="image/*, .svg" onchange="upLogoImg('${f.id}',this)" style="display:none">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:10px;height:10px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/></svg>
           Upload logo
@@ -3062,13 +3204,13 @@ function logoCard(f, i) {
   } else if (isSvgLogo) {
     controls = `
       <div class="media-field-lbl" style="margin-top:8px">Upload new SVG / image to replace logo</div>
-      <label class="ub" style="font-size:10px;height:28px;border-color:rgba(104,211,145,.4);color:var(--a3);margin-bottom:8px;display:flex;width:100%">
+      <label class="ub" style="font-size:11px;height:28px;border-color:rgba(104,211,145,.4);color:var(--a3);margin-bottom:8px;display:flex;width:100%">
         <input type="file" accept="image/*, .svg" onchange="upLogoSvgReplace('${f.id}',this)" style="display:none">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:10px;height:10px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/></svg>
         Upload replacement (SVG or image)
       </label>
       <div class="media-field-lbl">Edit SVG code directly</div>
-      <textarea class="fi2" style="font-size:10px;font-family:'JetBrains Mono',monospace;resize:vertical" id="logoSvg_${f.id}" rows="5" oninput="onLogoSvgEdit('${f.id}',this)">${esc(f.text||'')}</textarea>`;
+      <textarea class="fi2" style="font-size:11px;font-family:'JetBrains Mono',monospace;resize:vertical" id="logoSvg_${f.id}" rows="5" oninput="onLogoSvgEdit('${f.id}',this)">${esc(f.text||'')}</textarea>`;
   } else {
     // Text logo — just a text field
     controls = `
@@ -3519,7 +3661,7 @@ function dlExp(){
     setTimeout(()=>{
       const hint = document.createElement('div');
       hint.style.cssText='position:fixed;bottom:60px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,rgba(104,211,145,.15),rgba(99,179,237,.1));border:1px solid rgba(104,211,145,.3);border-radius:var(--r);padding:14px 20px;font-size:12px;color:var(--t0);z-index:9999;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.4);max-width:340px;animation:fu .3s ease';
-      hint.innerHTML='<div style="font-weight:600;margin-bottom:5px;color:var(--a3);font-size:13px">✓ File downloaded successfully!</div><div style="color:var(--t1);font-size:11px;line-height:1.5">Upload your file to your website server to see changes live.<br>Want to keep editing? Just make more changes then export again.</div><button onclick="this.parentElement.remove()" style="margin-top:10px;font-size:10px;padding:4px 12px;border:1px solid rgba(255,255,255,.15);background:transparent;color:var(--t1);border-radius:4px;cursor:pointer">Got it ✓</button>';
+      hint.innerHTML='<div style="font-weight:600;margin-bottom:5px;color:var(--a3);font-size:13px">✓ File downloaded successfully!</div><div style="color:var(--t1);font-size:11px;line-height:1.5">Upload your file to your website server to see changes live.<br>Want to keep editing? Just make more changes then export again.</div><button onclick="this.parentElement.remove()" style="margin-top:10px;font-size:11px;padding:4px 12px;border:1px solid rgba(255,255,255,.15);background:transparent;color:var(--t1);border-radius:4px;cursor:pointer">Got it ✓</button>';
       document.body.appendChild(hint);
       setTimeout(()=>{ if(hint.parentElement) hint.remove(); }, 9000);
     }, 500);
@@ -3940,10 +4082,12 @@ function togglePersistKey() {
 }
 
 function exportSettings() {
+  const withKey = !S.groqKey || confirm('Include your Groq API key in the exported file?\n\nOK = include it (plain text in the file)\nCancel = export without the key');
   const data = {
-    version: 'v3.0',
+    version: 'v'+APP_VER,
     exported: new Date().toISOString(),
-    groqKey: S.groqKey || '',
+    groqKey: withKey ? (S.groqKey || '') : '',
+    models: { fast:S.modelFast, big:S.modelBig },
     appTheme: S.appTheme || 'default',
     persistKey: _persistKey,
     feedback: S.feedback || [],
@@ -3970,6 +4114,11 @@ function importSettings(input) {
           try { localStorage.setItem('infuse_groq_key', data.groqKey); } catch(ex) {}
         }
       }
+      if (data.models && typeof data.models === 'object') {
+        if (typeof data.models.fast === 'string') S.modelFast = data.models.fast;
+        if (typeof data.models.big === 'string') S.modelBig = data.models.big;
+        saveModelPrefs(); renderModelPicker();
+      }
       if (data.appTheme) {
         const btn = document.querySelector(`#qtRow .qt[data-t="${data.appTheme}"]`);
         if (btn) applyAppTheme(btn, data.appTheme);
@@ -3992,6 +4141,7 @@ function clearAllData() {
   if (!confirm('Clear ALL data? This removes your Groq key, notes, and preferences. The page will reload.')) return;
   try { localStorage.clear(); } catch(e) {}
   S.groqKey = '';
+  S.modelFast = MODEL_DEFAULTS.fast; S.modelBig = MODEL_DEFAULTS.big; S.modelList = []; S.modelFetched = 0;
   S.feedback = [];
   S.appTheme = 'default';
   document.body.removeAttribute('data-theme');
@@ -4010,6 +4160,7 @@ function clearAllData() {
       S.groqKey = saved;
       _persistKey = true;
       updateKeyBtn();
+      if (!(S.modelList && S.modelList.length)) refreshModels(true);
     }
   } catch(e) {}
   // Always start with AI panel closed regardless of any prior state
@@ -4220,7 +4371,32 @@ function searchFields(query) {
   if(countEl) countEl.textContent = shown ? shown+' found' : 'none';
 }
 
-if('serviceWorker'in navigator){navigator.serviceWorker.register('./sw.js').then(()=>{}).catch(()=>{});}
+if('serviceWorker'in navigator){
+  let _updReq=false;
+  const showUpdateBar=reg=>{
+    if(document.getElementById('updBar'))return;
+    const b=document.createElement('div');b.id='updBar';b.setAttribute('role','status');
+    b.innerHTML='<span>Update ready</span><button type="button">Reload</button>';
+    b.querySelector('button').onclick=()=>{_updReq=true;(reg.waiting||reg.installing||reg.active).postMessage('SKIP_WAITING');setTimeout(()=>location.reload(),1500);};
+    document.body.appendChild(b);
+  };
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(_updReq)location.reload();});
+  navigator.serviceWorker.addEventListener('message',e=>{
+    if(e.data&&e.data.type==='VERSION'&&e.data.version!==APP_VER){
+      console.warn('INFUSE: page '+APP_VER+' vs service worker '+e.data.version);
+      const v=document.getElementById('verStamp');if(v)v.title='Service worker is '+e.data.version+' — reload to sync';
+    }
+  });
+  navigator.serviceWorker.register('./sw.js').then(reg=>{
+    if(reg.waiting&&navigator.serviceWorker.controller)showUpdateBar(reg);
+    reg.addEventListener('updatefound',()=>{
+      const nw=reg.installing;if(!nw)return;
+      nw.addEventListener('statechange',()=>{if(nw.state==='installed'&&navigator.serviceWorker.controller)showUpdateBar(reg);});
+    });
+    navigator.serviceWorker.ready.then(r=>r.active&&r.active.postMessage('GET_VERSION'));
+  }).catch(()=>{});
+}
+document.querySelectorAll('.appver').forEach(el=>{el.textContent='v'+APP_VER;});
 
 const esEl=document.getElementById('es');
 esEl.addEventListener('scroll',()=>document.getElementById('sct').classList.toggle('show',esEl.scrollTop>280));
@@ -4235,6 +4411,12 @@ document.addEventListener('drop', e => { if (!e.target.closest('.dz,.inf-slot-pi
 // ════════════════════════════════════════
 // V4.0 — PHASE 1: URL INJECT (Remote Fetching)
 // ════════════════════════════════════════
+let _proxyOK = false;
+function proxyConsent() {
+  if (_proxyOK) return true;
+  _proxyOK = confirm('The local helper (port 7842) is not running, so this page will be fetched through the third-party service corsproxy.io.\n\nThe URL and the page contents pass through that service. Continue?');
+  return _proxyOK;
+}
 async function injectFromUrl() {
   const inp = document.getElementById('urlInjectInp');
   const raw = (inp.value || '').trim();
@@ -4262,7 +4444,7 @@ async function injectFromUrl() {
   } catch (_) { /* local server not running — fall through */ }
 
   // ── Strategy 2: corsproxy.io (works on mobile / no local server) ──
-  if (!html) {
+  if (!html && proxyConsent()) {
     try {
       const proxyRes = await fetch(`https://corsproxy.io/?url=${encodeURIComponent(url)}`, { signal: AbortSignal.timeout(12000) });
       if (proxyRes.ok) {
@@ -4428,9 +4610,9 @@ function renderAuditLinkCards() {
     const shortHref = lk.href.length > 70 ? lk.href.substring(0, 67) + '…' : lk.href;
     return `<div class="${cardCls}" style="animation-delay:${i*0.018}s">
       <div style="font-size:11px;color:var(--t0);font-weight:500;margin-bottom:4px">${esc(lk.label || '(no text)')}</div>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t2);word-break:break-all;line-height:1.4">${esc(shortHref)}</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--t2);word-break:break-all;line-height:1.4">${esc(shortHref)}</div>
       <div class="${badgeCls}">${badgeTxt}</div>
-      ${lk.href.startsWith('http') ? `<button class="btn" style="margin-top:8px;font-size:10px;padding:3px 9px" onclick="window.open('${lk.href.replace(/'/g,'')}','_blank')">Open ↗</button>` : ''}
+      ${lk.href.startsWith('http') ? `<button class="btn" style="margin-top:8px;font-size:11px;padding:3px 9px" onclick="window.open('${lk.href.replace(/'/g,'')}','_blank')">Open ↗</button>` : ''}
     </div>`;
   }).join('');
 }
@@ -4602,7 +4784,7 @@ async function audFetchUrl(slot) {
     const r = await fetch('http://localhost:7842/fetch-url?url=' + encodeURIComponent(url), { signal: AbortSignal.timeout(8000) });
     if (r.ok) { const d = await r.json(); if (d.ok && d.html) html = d.html; }
   } catch(_) {}
-  if (!html) {
+  if (!html && proxyConsent()) {
     try {
       const r = await fetch('https://corsproxy.io/?url=' + encodeURIComponent(url), { signal: AbortSignal.timeout(12000) });
       if (r.ok) html = await r.text();
@@ -4831,17 +5013,17 @@ function audRender() {
   tbody.innerHTML = rows.map(p => {
     const ri  = AUD.pages.indexOf(p);
     const bd  = badgeDef[p.status] || {};
-    const badge = `<span style="display:inline-flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:500;padding:3px 8px;border-radius:20px;border:1px solid ${bd.bd};color:${bd.cls};background:${bd.bg};white-space:nowrap;cursor:help" title="${bd.tip}">${bd.lbl}</span>`;
+    const badge = `<span style="display:inline-flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;padding:3px 8px;border-radius:20px;border:1px solid ${bd.bd};color:${bd.cls};background:${bd.bg};white-space:nowrap;cursor:help" title="${bd.tip}">${bd.lbl}</span>`;
     const sd  = '/' + (p.slug === '(homepage)' ? '' : p.slug);
-    const oc  = p.orig ? `<a href="${p.orig}" target="_blank" title="Open on original site: ${p.orig}" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t2);border-bottom:1px dotted rgba(255,255,255,.1);transition:color .12s" onmouseover="this.style.color='var(--ht)'" onmouseout="this.style.color='var(--t2)'">${audSh(p.orig,42)}</a>` : `<span style="color:var(--t2);font-style:italic;font-size:10px">—</span>`;
-    const nc  = p.nw   ? `<a href="${p.nw}"   target="_blank" title="Open on new site: ${p.nw}"   style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t2);border-bottom:1px dotted rgba(255,255,255,.1);transition:color .12s" onmouseover="this.style.color='var(--a3)'" onmouseout="this.style.color='var(--t2)'">${audSh(p.nw,42)}</a>`   : `<span style="color:var(--dr);font-family:'JetBrains Mono',monospace;font-size:10px">Not on new site</span>`;
+    const oc  = p.orig ? `<a href="${p.orig}" target="_blank" title="Open on original site: ${p.orig}" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--t2);border-bottom:1px dotted rgba(255,255,255,.1);transition:color .12s" onmouseover="this.style.color='var(--ht)'" onmouseout="this.style.color='var(--t2)'">${audSh(p.orig,42)}</a>` : `<span style="color:var(--t2);font-style:italic;font-size:11px">—</span>`;
+    const nc  = p.nw   ? `<a href="${p.nw}"   target="_blank" title="Open on new site: ${p.nw}"   style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--t2);border-bottom:1px dotted rgba(255,255,255,.1);transition:color .12s" onmouseover="this.style.color='var(--a3)'" onmouseout="this.style.color='var(--t2)'">${audSh(p.nw,42)}</a>`   : `<span style="color:var(--dr);font-family:'JetBrains Mono',monospace;font-size:11px">Not on new site</span>`;
     let acts = '';
-    if (p.orig) acts += `<a class="btn" href="${p.orig}" target="_blank" title="Open this page on the ORIGINAL site in a new tab to verify content" style="font-size:10px;padding:3px 8px;border-color:rgba(246,173,85,.2);color:var(--ht);margin-right:3px">↗ Orig</a>`;
-    if (p.nw)   acts += `<a class="btn" href="${p.nw}"   target="_blank" title="Open this page on the NEW site in a new tab to verify it exists" style="font-size:10px;padding:3px 8px;border-color:rgba(104,211,145,.2);color:var(--a3);margin-right:3px">↗ New</a>`;
+    if (p.orig) acts += `<a class="btn" href="${p.orig}" target="_blank" title="Open this page on the ORIGINAL site in a new tab to verify content" style="font-size:11px;padding:3px 8px;border-color:rgba(246,173,85,.2);color:var(--ht);margin-right:3px">↗ Orig</a>`;
+    if (p.nw)   acts += `<a class="btn" href="${p.nw}"   target="_blank" title="Open this page on the NEW site in a new tab to verify it exists" style="font-size:11px;padding:3px 8px;border-color:rgba(104,211,145,.2);color:var(--a3);margin-right:3px">↗ New</a>`;
     if (p.status === 'missing') {
       acts += AUD.done.has(ri)
-        ? `<button class="btn" style="font-size:10px;padding:3px 8px;opacity:.5;cursor:default;color:var(--a3);border-color:rgba(104,211,145,.2)" title="Placeholder downloaded. Upload it to the new site.">✓ Done</button>`
-        : `<button class="btn" onclick="audOpenModal(${ri})" title="Generate a branded Coming Soon placeholder HTML — upload to new site at this URL to keep the link alive while you build the real page" style="font-size:10px;padding:3px 8px;border-color:rgba(252,129,129,.25);color:var(--dr)">Placeholder</button>`;
+        ? `<button class="btn" style="font-size:11px;padding:3px 8px;opacity:.5;cursor:default;color:var(--a3);border-color:rgba(104,211,145,.2)" title="Placeholder downloaded. Upload it to the new site.">✓ Done</button>`
+        : `<button class="btn" onclick="audOpenModal(${ri})" title="Generate a branded Coming Soon placeholder HTML — upload to new site at this URL to keep the link alive while you build the real page" style="font-size:11px;padding:3px 8px;border-color:rgba(252,129,129,.25);color:var(--dr)">Placeholder</button>`;
     }
     return `<tr style="border-bottom:1px solid rgba(255,255,255,.032);transition:background .1s" onmouseover="this.style.background='var(--bg1)'" onmouseout="this.style.background=''">
       <td style="padding:9px 14px;vertical-align:middle">${badge}</td>
@@ -4965,7 +5147,7 @@ function audDownloadPh() {
 body{font-family:'Segoe UI',system-ui,sans-serif;background:#07070f;color:#d8dcf0;
   min-height:100vh;display:flex;flex-direction:column;align-items:center;
   justify-content:center;text-align:center;padding:40px 20px}
-.brand{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:#6eb5ff;margin-bottom:28px;opacity:.45}
+.brand{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:#6eb5ff;margin-bottom:28px;opacity:.45}
 .badge{display:inline-block;padding:5px 16px;border-radius:20px;
   background:rgba(255,180,50,.08);border:1px solid rgba(255,180,50,.25);
   color:#f5c842;font-size:11px;letter-spacing:.08em;margin-bottom:18px}
@@ -4975,7 +5157,7 @@ p{color:#535b7a;font-size:14px;line-height:1.7;max-width:380px}
   background:#6eb5ff;color:#07070f;border-radius:9px;text-decoration:none;
   font-weight:700;font-size:13px;letter-spacing:.04em;transition:filter .15s}
 .btn:hover{filter:brightness(1.12)}
-.orig{display:block;margin-top:18px;font-size:10px;color:#2b324e;font-family:monospace}
+.orig{display:block;margin-top:18px;font-size:11px;color:#2b324e;font-family:monospace}
 .orig a{color:inherit;border-bottom:1px dotted #3a4060}
 </style>
 </head>
@@ -5207,7 +5389,7 @@ function audExportCSV() {
         </div>
       </div>
     </div>
-    <div class="rp-bdg">INFUSE v5.0 · Groq AI</div>
+    <div class="rp-bdg">INFUSE <span class="appver">v5.1.0</span> · Groq AI</div>
   </div>
 
 <script>
@@ -5231,5 +5413,35 @@ function deployLoadExample(){document.getElementById('dp-source').value='<!DOCTY
 (function(){const el=document.getElementById('isbEdit');if(el)el.className='isb-icon ac';})();
 </script>
 
+<script>
+// a11y: labels for icon-only controls, dialog roles, keyboard activation for clickable divs
+(function(){
+  const NATIVE=/^(A|BUTTON|INPUT|SELECT|TEXTAREA|LABEL|SUMMARY)$/;
+  function fix(root){
+    root.querySelectorAll('[data-tip]').forEach(el=>{
+      if(!el.hasAttribute('aria-label')&&!(el.textContent||'').trim())el.setAttribute('aria-label',el.getAttribute('data-tip'));
+    });
+    root.querySelectorAll('button:not([aria-label])').forEach(el=>{
+      if(!(el.textContent||'').trim()&&el.title)el.setAttribute('aria-label',el.title);
+    });
+    root.querySelectorAll('.ov').forEach(el=>{
+      if(!el.hasAttribute('role')){el.setAttribute('role','dialog');el.setAttribute('aria-modal','true');}
+    });
+    root.querySelectorAll('[onclick]').forEach(el=>{
+      if(NATIVE.test(el.tagName)||el.classList.contains('ov'))return;
+      if(!el.hasAttribute('role'))el.setAttribute('role','button');
+      if(!el.hasAttribute('tabindex'))el.setAttribute('tabindex','0');
+    });
+  }
+  fix(document);
+  new MutationObserver(m=>m.forEach(r=>r.addedNodes.forEach(n=>{if(n.nodeType===1)fix(n);}))).observe(document.body,{childList:true,subtree:true});
+  document.addEventListener('keydown',e=>{
+    if((e.key==='Enter'||e.key===' ')&&e.target&&e.target.getAttribute&&e.target.getAttribute('role')==='button'&&!NATIVE.test(e.target.tagName)){
+      e.preventDefault();e.target.click();
+    }
+    if(e.key==='Escape'){const o=document.querySelector('.ov.show');if(o){const c=o.querySelector('.mc');if(c)c.click();}}
+  });
+})();
+</script>
 </body>
 </html>
