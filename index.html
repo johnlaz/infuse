@@ -6,6 +6,13 @@
 <title>INFUSE — Edit any website without touching code</title>
 <meta name="description" content="A browser-based site injector. Load any HTML, rewrite every word, swap every image, regenerate the theme with AI, export a clean standalone file. No FTP. No Git. No code.">
 <meta name="theme-color" content="#07070c">
+<link rel="icon" type="image/png" sizes="192x192" href="app/icon-192.png">
+<link rel="apple-touch-icon" href="app/icon-192.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="INFUSE Site Injector">
+<meta property="og:description" content="Edit any website without touching code. Load any HTML, rewrite it with Groq AI, export a clean standalone file.">
+<meta property="og:image" content="https://johnlaz.github.io/infuse/app/icon-512.png">
+<meta name="twitter:card" content="summary">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -290,7 +297,7 @@ h1.headline{
   display:flex;align-items:center;justify-content:space-between;
   margin-bottom:10px;
   font-family:'JetBrains Mono',monospace;
-  font-size:10px;letter-spacing:0.08em;
+  font-size:11px;letter-spacing:0.08em;
   color:var(--ink-mute);
   text-transform:uppercase;
 }
@@ -325,7 +332,7 @@ h1.headline{
 .editor-actions{
   display:flex;justify-content:space-between;align-items:center;
   font-family:'JetBrains Mono',monospace;
-  font-size:10px;color:var(--ink-mute);
+  font-size:11px;color:var(--ink-mute);
 }
 .ai-btn{
   background:rgba(244,120,32,0.12);
@@ -489,7 +496,7 @@ section{
 }
 .feat .feat-num{
   font-family:'JetBrains Mono',monospace;
-  font-size:10px;color:var(--ink-mute);
+  font-size:11px;color:var(--ink-mute);
   letter-spacing:0.1em;
 }
 .feat .feat-mark{
@@ -582,7 +589,7 @@ section{
 .msg.bot .ai-tag{
   display:inline-block;
   font-family:'JetBrains Mono',monospace;
-  font-size:9px;letter-spacing:0.12em;
+  font-size:11px;letter-spacing:0.12em;
   color:var(--inf);
   margin-bottom:6px;
   text-transform:uppercase;
@@ -594,7 +601,7 @@ section{
 }
 .chip{
   font-family:'JetBrains Mono',monospace;
-  font-size:10px;letter-spacing:0.05em;
+  font-size:11px;letter-spacing:0.05em;
   padding:5px 10px;
   background:rgba(255,255,255,0.04);
   border:1px solid var(--line);
@@ -677,10 +684,10 @@ footer{
 .foot-links a{color:var(--ink-dim);text-decoration:none;transition:color .2s}
 .foot-links a:hover{color:var(--inf)}
 .foot-meta{
-  display:flex;justify-content:space-between;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 24px;
   margin-top:24px;
   font-family:'JetBrains Mono',monospace;
-  font-size:10px;letter-spacing:0.1em;
+  font-size:11px;letter-spacing:0.1em;
   color:var(--ink-mute);
   text-transform:uppercase;
 }
@@ -689,14 +696,24 @@ footer{
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
 .reveal.in{opacity:1;transform:none}
 
+
+.brand-mark{border-radius:7px;object-fit:cover;background:none;box-shadow:0 4px 14px var(--inf-glow)}
+.foot-meta a{color:inherit;text-decoration:underline;text-underline-offset:3px;text-transform:none}
+.foot-meta a:hover{color:var(--inf)}
+:focus-visible{outline:2px solid var(--inf);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+}
 </style>
 </head>
 <body>
 
 <!-- ============ NAV ============ -->
-<nav>
+<nav aria-label="Primary">
   <div class="brand">
-    <div class="brand-mark">i</div>
+    <img class="brand-mark" src="app/icon-192.png" alt="" width="28" height="28">
     INFUSE
   </div>
   <div class="nav-links">
@@ -708,10 +725,11 @@ footer{
   <a href="./app/" class="nav-cta">Launch App →</a>
 </nav>
 
+<main id="top">
 <!-- ============ HERO ============ -->
 <section class="hero">
   <div>
-    <div class="eyebrow"><span class="dot"></span>SITE INJECTOR · v1.8</div>
+    <div class="eyebrow"><span class="dot"></span>SITE INJECTOR · v5.1.0</div>
     <h1 class="headline display">
       Edit any website<br>
       <span class="strike">without touching</span><br>
@@ -957,11 +975,12 @@ footer{
   </div>
 </section>
 
+</main>
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="foot-row">
     <div class="brand">
-      <div class="brand-mark">i</div>
+      <img class="brand-mark" src="app/icon-192.png" alt="" width="28" height="28">
       INFUSE
     </div>
     <div class="foot-links">
@@ -969,12 +988,12 @@ footer{
       <a href="#features">Features</a>
       <a href="#ai">AI</a>
       <a href="#export">Export</a>
-      <a href="./README.md">README</a>
+      <a href="https://github.com/johnlaz/infuse#readme" target="_blank" rel="noopener">README</a>
     </div>
   </div>
   <div class="foot-meta">
-    <span>INFUSE Site Injector · v1.8</span>
-    <span>A Lazzaro Standard build · Built with vanilla HTML · Powered by Groq</span>
+    <span>INFUSE Site Injector · v5.1.0</span>
+    <span>© 2026 LAZLAB Creations. All Rights Reserved. · <a href="mailto:lazlab.io@gmail.com">lazlab.io@gmail.com</a></span>
   </div>
 </footer>
 
